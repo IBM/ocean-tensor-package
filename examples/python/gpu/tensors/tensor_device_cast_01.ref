@@ -1,0 +1,9 @@
+   1   2   3
+<tensor.int64 of size 3 on gpu1>
+   1   2   3
+<storage.int64 of size 3 on gpu1>
+(:,:)
+   1   4
+   2   5
+   3   6
+<tensor.double of size 3x2 on gpu0>

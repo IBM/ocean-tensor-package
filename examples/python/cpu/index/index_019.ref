@@ -1,0 +1,12 @@
+(:,:)
+    0    4    8   12   16   20
+    1    5    9   13   17   21
+    2    6   10   14   18   22
+    3    7   11   15   19   23
+<tensor.int64 of size 4x6 on cpu>
+    3    7   11   15   19   23
+<tensor.int64 of size 6 on cpu>
+    7   15   23
+<tensor.int64 of size 3 on cpu>
+   12   13   15
+<tensor.int64 of size 3 on cpu>

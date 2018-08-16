@@ -1,0 +1,8 @@
+   1   2   3   4
+<tensor.int64 of size 4 on cpu>
+   5   6   7   8
+<tensor.uint64 of size 4 on cpu>
+    9   10   11
+<tensor.double of size 3 on cpu>
+   12 + 13j    14 + 15j
+<tensor.complex-double of size 2 on cpu>

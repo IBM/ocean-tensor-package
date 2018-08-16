@@ -1,0 +1,20 @@
+(:,:)
+   1   1   1   1
+   1   1   1   1
+   1   1   1   1
+<tensor.float of size 3x4 on cpu>
+(:,:)
+   1   1   1   1
+   1   1   1   1
+   1   1   1   1
+<tensor.int8 of size 3x4 on cpu>
+(:,:)
+   1   1   1   1
+   1   1   1   1
+   1   1   1   1
+<tensor.float of size 3x4 on cpu>
+(:,:)
+   1   1   1   1
+   1   1   1   1
+   1   1   1   1
+<tensor.float of size 3x4 on cpu>

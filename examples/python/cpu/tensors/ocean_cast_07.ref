@@ -1,0 +1,12 @@
+False
+False
+   1   2   3
+<tensor.int64 of size 3 on cpu>
+False
+False
+   1   2   3
+<storage.int64 of size 3 on cpu>
+9
+1
+   1   2   3
+<tensor.float of size 3 on cpu>

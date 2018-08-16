@@ -1,0 +1,13 @@
+(:,:,0)
+    True   False    True
+   False    True    True
+
+(:,:,1)
+   False   False   False
+    True    True   False
+<tensor.bool of size 2x3x2 on cpu>
+(:,:)
+   0   1   0   1   1   1
+   0   1   2   2   0   1
+   0   0   0   0   1   1
+<tensor.int64 of size 3x6 on cpu>

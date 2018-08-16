@@ -1,0 +1,6 @@
+(:,:)
+   1 + 2j    1 + 0j
+   3 + 1j    2 + 2j
+<tensor.complex-double of size 2x2 on gpu0>
+3.16228
+Expected error: The tensor "maximum absolute" function does not apply to empty tensors

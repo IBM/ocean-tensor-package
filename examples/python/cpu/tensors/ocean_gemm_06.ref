@@ -1,0 +1,23 @@
+(:,:)
+   0   1
+   2   3
+<tensor.float of size 2x2 on cpu>
+   1   2
+<tensor.float of size 2 on cpu>
+   2   8
+<tensor.float of size 2 on cpu>
+
+----------------------------------------
+(:,:)
+   1
+   2
+   3
+<tensor.double of size 3x1 on cpu>
+(:,:)
+   2   3   4
+<tensor.double of size 1x3 on cpu>
+(:,:)
+    2    3    4
+    4    6    8
+    6    9   12
+<tensor.double of size 3x3 on cpu>

@@ -1,0 +1,8 @@
+<empty tensor.float of size 0 on cpu>
+<empty tensor.float of size 2x3x0 on cpu>
+2
+<scalar.float on cpu>
+a.isEmpty()  : True
+b.isEmpty()  : True
+c.isEmpty()  : False
+c.isScalar() : True

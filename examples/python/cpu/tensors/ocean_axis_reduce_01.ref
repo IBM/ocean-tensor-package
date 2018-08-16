@@ -1,0 +1,20 @@
+(:,:)
+   120   135   150   165
+   125   140   155   170
+   130   145   160   175
+<tensor.int64 of size 3x4 on cpu>
+(:,:,0)
+   120   135   150   165
+   125   140   155   170
+   130   145   160   175
+<tensor.int64 of size 3x4x1 on cpu>
+(:,:)
+   120   135   150   165
+   125   140   155   170
+   130   145   160   175
+<tensor.double of size 3x4 on cpu (byteswapped)>
+(:,:,0)
+   120   135   150   165
+   125   140   155   170
+   130   145   160   175
+<tensor.int64 of size 3x4x1 on cpu>

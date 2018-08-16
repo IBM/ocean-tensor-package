@@ -1,0 +1,425 @@
+#include <stddef.h>
+
+#include "solid_cpu.h"
+
+
+/* --------------------------------------------------------------------- */
+/* Note:                                                                 */
+/* 1. All stride parameters are given in bytes, not number of elements   */
+/* 2. Overlap detection and resolution must be done outside; Solid does  */
+/*    not perform any checks, and does not allocate intermediate arrays  */
+/* 3. Dimension simplification and ordering must be done outside; Solid  */
+/*    does not perform any of these operations.                          */
+/* --------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------- */
+/* Data type information                                                 */
+/* --------------------------------------------------------------------- */
+SOLID_API const int solid_cpu_type_size[];
+SOLID_API const int solid_cpu_worktype_size[];
+
+
+/* --------------------------------------------------------------------- */
+/* Basic scalar functions                                                */
+/* --------------------------------------------------------------------- */
+
+FUNCTIONS2(cpu, void, scalar_copy, "void *src, void *dst")
+
+
+/* --------------------------------------------------------------------- */
+/* The fill function sets all elements in the tensor to the given value  */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, fill,          "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_scalar value", all)
+FUNCTIONS(cpu, int, fill_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_scalar value", float)
+FUNCTIONS(cpu, int, masked_fill,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                   "const ptrdiff_t *strides2, void *ptr2, solid_scalar value", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Copy and byteswap functions                                           */
+/* --------------------------------------------------------------------- */
+FUNCTIONS2(cpu, int, copy,         "int ndims1, const size_t *size1, const ptrdiff_t *strides1, void *ptr1", \
+                                   "int ndims2, const size_t *size2, const ptrdiff_t *strides2, void *ptr2")
+FUNCTIONS2(cpu, int, copy_regular, "int ndims, const size_t *size", "const ptrdiff_t *strides1, void *ptr1", \
+                                   "const ptrdiff_t *strides2, void *ptr2")
+
+FUNCTIONS(cpu, int, byteswap,       "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", all)
+FUNCTIONS2(cpu, int, byteswap_copy, "int ndims1, const size_t *size1, const ptrdiff_t *strides1, void *ptr1", \
+                                    "int ndims2, const size_t *size2, const ptrdiff_t *strides2, void *ptr2")
+
+
+/* --------------------------------------------------------------------- */
+/* Step functions to generate linspaces                                  */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, steps_int64,   "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_int64 offset, solid_int64 step", all)
+FUNCTIONS(cpu, int, steps_double,  "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_double offset, solid_double step", all)
+FUNCTIONS(cpu, int, steps_cdouble, "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_cdouble offset, solid_cdouble step", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Index manipulation                                                    */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, add_if_negative, "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                     "solid_scalar value", int)
+FUNCTIONS(cpu, int, index_to_offset, "int nstrides, solid_int64 *strides, ptrdiff_t strideReduce, size_t nelem", \
+                                     "ptrdiff_t stride1, void *ptr1, ptrdiff_t stride2, void *ptr2", integer)
+
+/* ----------------------------------------------------------------------- */
+/* The prepare function analyzes the boolean data and outputs the number   */
+/* of nonzero entries in nelem as well as an in internal data structure.   */
+/* The apply function is given a pointer to the data structure as well as  */
+/* the strides to a size-by-2 array for the indices. The finalize function */
+/* cleans up the internal data structure. The output pointer in apply must */
+/* pointer to consecutive int64 data. When multiplier is given, the data   */
+/* must be a column-major ndims x nnz array.                               */
+/* ----------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, find_prepare, "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "size_t *nnz, void **data", bool)
+FUNCTIONS(cpu, int, find_apply,   "void *data, solid_int64 *ptr, const solid_int64 *multiplier", bool)
+FUNCTIONS(cpu, int, find_finalize,"void *data", bool)
+
+/* ----------------------------------------------------------------------- */
+/* Get and set the values of indexed arrays. The index array has offsets,  */
+/* strides1 and ptr1, whereas the destination/source array is given by     */
+/* strides2 and ptr2. The size and number of dimensions must be identical. */
+/* ----------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, get_index,    "int ndims, const size_t *size, solid_int64 **offsets",\
+                                  "const ptrdiff_t *strides1, void *ptr1", \
+                                  "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, set_index,    "int ndims, const size_t *size, solid_int64 **offsets",\
+                                  "const ptrdiff_t *strides1, void *ptr1", \
+                                  "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, fill_index,   "int ndims, const size_t *size, solid_int64 **offsets",\
+                                  "const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar value", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Basic unary functions                                                 */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, negative,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - uint)
+FUNCTIONS(cpu, int, conj,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", complex)
+FUNCTIONS(cpu, int, reciprocal,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, bitwise_not, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", integer + bool)
+FUNCTIONS(cpu, int, logical_not, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", bool)
+
+FUNCTIONS(cpu, int, sin,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, cos,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, tan,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, sinh,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, cosh,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, tanh,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, arcsin,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, arccos,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, arctan,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, arcsinh,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, arccosh,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, arctanh,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+
+FUNCTIONS(cpu, int, sqrt,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, cbrt,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, square,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, exp,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, exp2,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, exp10,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, expm1,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, log,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, log2,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, log10,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, log1p,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - bool)
+FUNCTIONS(cpu, int, fabs,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, sign,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, ceil,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", float)
+FUNCTIONS(cpu, int, floor,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", float)
+FUNCTIONS(cpu, int, trunc,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", float)
+FUNCTIONS(cpu, int, round,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", float)
+
+FUNCTIONS(cpu, int, isinf,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, isnan,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, isfinite,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all)
+FUNCTIONS(cpu, int, isposinf,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - complex)
+FUNCTIONS(cpu, int, isneginf,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all - complex)
+
+/* The absolute function is defined for complex types; the output must have the element type */
+FUNCTIONS(cpu, int, absolute,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Basic binary functions                                                */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(cpu, int, add,            "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, subtract,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, multiply,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, divide,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, true_divide,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, floor_divide,   "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all - complex)
+FUNCTIONS(cpu, int, mod,            "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all - complex)
+FUNCTIONS(cpu, int, fmod,           "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all - complex)
+
+FUNCTIONS(cpu, int, bitwise_and,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", integer + bool)
+FUNCTIONS(cpu, int, bitwise_or,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", integer + bool)
+FUNCTIONS(cpu, int, bitwise_xor,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", integer + bool)
+FUNCTIONS(cpu, int, logical_and,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", bool)
+FUNCTIONS(cpu, int, logical_or,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", bool)
+FUNCTIONS(cpu, int, logical_xor,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", bool)
+
+FUNCTIONS(cpu, int, lt,             "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, le,             "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, ge,             "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, gt,             "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, eq,             "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, ne,             "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+
+FUNCTIONS(cpu, int, min,            "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, max,            "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, fmin,           "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+FUNCTIONS(cpu, int, fmax,           "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+
+/* Second argument to bitshift functions must have type uint8 */
+FUNCTIONS(cpu, int, bitshift_left,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", integer + bool)
+FUNCTIONS(cpu, int, bitshift_right, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", integer + bool)
+
+/* When the first input argument is boolean and integer the second argument must have type int16 */
+FUNCTIONS(cpu, int, power,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Reduction functions - global                                          */
+/* --------------------------------------------------------------------- */
+
+/* Reduction functions: boolean output */
+FUNCTIONS(cpu, int, any,          "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_bool *result", all)
+FUNCTIONS(cpu, int, all,          "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_finite,   "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_bool *result", float)
+FUNCTIONS(cpu, int, any_inf,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_bool *result", float)
+FUNCTIONS(cpu, int, any_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_bool *result", float)
+FUNCTIONS(cpu, int, all_lt,       "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *bound, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_le,       "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *bound, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_gt,       "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *bound, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_ge,       "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *bound, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_gtlt,     "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *lower, solid_scalar *upper, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_gtle,     "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *lower, solid_scalar *upper, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_gelt,     "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *lower, solid_scalar *upper, solid_bool *result", all)
+FUNCTIONS(cpu, int, all_gele,     "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_scalar *lower, solid_scalar *upper, solid_bool *result", all)
+
+/* Reduction functions: unsigned 64-bit integer output */
+FUNCTIONS(cpu, int, nnz,          "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_uint64 *result", all)
+FUNCTIONS(cpu, int, nnz_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, solid_uint64 *result", all)
+
+/* Reduction functions: unsigned integer and bool (uint64), signed integer (int64), floating point and complex (same type) */
+FUNCTIONS(cpu, int, sum,          "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, sum_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, prod,         "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, prod_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+
+/* Reduction functions: integer and bool (uint64), floating point and complex (base type) */
+FUNCTIONS(cpu, int, sum_abs,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, sum_abs_nan,  "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+
+/* Reduction functions: result has the same type as the input */
+FUNCTIONS(cpu, int, maximum,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, minimum,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+
+/* Reduction functions: unsigned integer and bool (same type), signed integer (unsigned type), floating point and complex (base type) */
+FUNCTIONS(cpu, int, maximum_abs,  "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, minimum_abs,  "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+
+/* Reduction functions: integer and bool (double), floating point and complex (base type) */
+FUNCTIONS(cpu, int, norm,         "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, double p, void *result", all)
+FUNCTIONS(cpu, int, norm_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, double p, void *result", all)
+FUNCTIONS(cpu, int, norm2,        "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+FUNCTIONS(cpu, int, norm2_nan,    "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                  "void *ptr, void *result", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Reduction functions - axis                                            */
+/* --------------------------------------------------------------------- */
+
+/* Reduction functions: boolean output */
+FUNCTIONS(cpu, int, axis_any,         "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_all,         "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_all_finite,  "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", float)
+FUNCTIONS(cpu, int, axis_any_inf,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", float)
+FUNCTIONS(cpu, int, axis_any_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", float)
+
+/* Reduction functions: unsigned 64-bit integer output */
+FUNCTIONS(cpu, int, axis_nnz,         "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_nnz_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", float)
+
+/* Reduction functions: unsigned integer and bool (uint64), signed integer (int64), floating point and complex (same type) */
+FUNCTIONS(cpu, int, axis_sum,         "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_prod,        "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_sum_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_prod_nan,    "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+
+/* Reduction functions: integer and bool (uint64), floating point and complex (base type) */
+FUNCTIONS(cpu, int, axis_sum_abs,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_sum_abs_nan, "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+
+/* Reduction functions: result has the same type as the input */
+FUNCTIONS(cpu, int, axis_minimum,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_maximum,     "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+
+/* Reduction functions: unsigned integer and bool (same type), signed integer (unsigned type), floating point and complex (base type) */
+FUNCTIONS(cpu, int, axis_minimum_abs, "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_maximum_abs, "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+
+/* Reduction functions: integer and bool (double), floating point and complex (base type) */
+FUNCTIONS(cpu, int, axis_norm,        "int ndims, const size_t *size, double p, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_norm_nan,    "int ndims, const size_t *size, double p, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_norm2,       "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+FUNCTIONS(cpu, int, axis_norm2_nan,   "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                      "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                      "int rdims, const size_t *rsize, const ptrdiff_t *rstrides", all)
+
+
+/* --------------------------------------------------------------------- */
+/* BLAS functions                                                        */
+/* --------------------------------------------------------------------- */
+
+FUNCTIONS(cpu, int, gemm, "char transA, char transB, size_t M, size_t N, size_t K", \
+                          "void *ptrAlpha, void *ptrA, ptrdiff_t lda, void *ptrB, ptrdiff_t ldb", \
+                          "void *ptrBeta, void *ptrC, ptrdiff_t ldc", integer + bool)
+

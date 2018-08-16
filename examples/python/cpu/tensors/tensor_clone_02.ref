@@ -1,0 +1,21 @@
+(:,:)
+   1   1   1   1
+   2   2   2   2
+   3   3   3   3
+<tensor.float of size 3x4 on cpu>
+   1   2   3
+<storage.float of size 3 on cpu>
+(:,:)
+   1   1   1   1
+   2   2   2   2
+   3   3   3   3
+<tensor.float of size 3x4 on cpu>
+   1   2   3
+<storage.float of size 3 on cpu>
+(:,:)
+   1   1   1   1
+   2   2   2   2
+   3   3   3   3
+<tensor.float of size 3x4 on cpu>
+   1   2   3   1   2   3   1   2   3   1   2   3
+<storage.float of size 12 on cpu>

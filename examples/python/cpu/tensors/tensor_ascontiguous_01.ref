@@ -1,0 +1,19 @@
+True
+(:,:)
+    0    3    6    9
+    1    4    7   10
+    2    5    8   11
+<tensor.float of size 3x4 on cpu>
+False
+(:,:)
+    0    3    6    9
+    1    4    7   10
+    2    5    8   11
+<tensor.float of size 3x4 on cpu>
+True
+(4, 12)
+(:,:)
+    0    3    6    9
+    1    4    7   10
+    2    5    8   11
+<tensor.float of size 3x4 on cpu>

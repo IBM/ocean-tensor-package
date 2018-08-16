@@ -1,0 +1,16 @@
+   1   2   3
+<tensor.int64 of size 3 on gpu0>
+   1   2   3
+<tensor.float of size 3 on gpu0>
+   1   2   3
+<tensor.half of size 3 on gpu0>
+   1   2   3
+<storage.int64 of size 3 on gpu0>
+   1   2   3
+<storage.int8 of size 3 on gpu0>
+   1   2   3
+<storage.int64 of size 3 on gpu0>
+10
+<scalar.int8 on gpu0>
+10
+<scalar.int16 on cpu>

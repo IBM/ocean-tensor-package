@@ -1,0 +1,18 @@
+(:,:)
+   1 + 2j    2 + 3j
+<tensor.complex-double of size 1x2 on cpu>
+(:,:)
+   1 - 2j    2 - 3j
+<tensor.complex-double of size 1x2 on cpu>
+   1 + 0j    2 + 1j
+<tensor.complex-double of size 2 on cpu>
+   2 + 10j
+<tensor.complex-double of size 1 on cpu>
+   8 - 6j
+<tensor.complex-double of size 1 on cpu>
+(:,:)
+   2 - 10j
+<tensor.complex-double of size 1x1 on cpu>
+(:,:)
+   8 + 6j
+<tensor.complex-double of size 1x1 on cpu>

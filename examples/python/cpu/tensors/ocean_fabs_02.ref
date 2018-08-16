@@ -1,0 +1,24 @@
+
+========= fabs =========
+   3
+<tensor.float of size 1 on cpu>
+   3
+<tensor.uint8 of size 1 on cpu>
+   3
+<tensor.double of size 1 on cpu>
+   5
+<tensor.int32 of size 1 on cpu>
+   5 + 0j
+<tensor.complex-half of size 1 on cpu>
+
+========= absolute =========
+   3
+<tensor.float of size 1 on cpu>
+   3
+<tensor.uint8 of size 1 on cpu>
+   3
+<tensor.double of size 1 on cpu>
+   5
+<tensor.int32 of size 1 on cpu>
+   5 + 0j
+<tensor.complex-half of size 1 on cpu>

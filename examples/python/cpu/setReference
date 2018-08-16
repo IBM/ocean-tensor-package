@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Expect a single .py input file
+FILENAME=$1
+BASE="${FILENAME%.*}"
+
+python ${FILENAME} > ${BASE}.ref

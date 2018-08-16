@@ -1,0 +1,32 @@
+(:,:)
+    0    6   12   18   24
+    1    7   13   19   25
+    2    8   14   20   26
+    3    9   15   21   27
+    4   10   16   22   28
+    5   11   17   23   29
+<tensor.int64 of size 6x5 on cpu (byteswapped, read-only)>
+19
+    2    8   14   20   26
+<tensor.int64 of size 5 on cpu (byteswapped, read-only)>
+   12   13   14   15   16   17
+<tensor.int64 of size 6 on cpu (byteswapped, read-only)>
+    2    8   14   20   26
+<tensor.int64 of size 5 on cpu (byteswapped, read-only)>
+(:,:,0,0,0)
+    1    7   13   19   25
+<tensor.int64 of size 1x5x1x1x1 on cpu (byteswapped, read-only)>
+(:,:)
+   24   18   12    6    0
+   27   21   15    9    3
+<tensor.int64 of size 2x5 on cpu (byteswapped, read-only)>
+(:,:)
+    0    6   12   18   24
+    1    7   13   19   25
+    2    8   14   20   26
+<tensor.int64 of size 3x5 on cpu (byteswapped, read-only)>
+(:,:)
+    1    7   13   19   25
+    3    9   15   21   27
+    1    7   13   19   25
+<tensor.int64 of size 3x5 on cpu (byteswapped)>

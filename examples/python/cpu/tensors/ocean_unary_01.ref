@@ -1,0 +1,10 @@
+   1   4   9
+<tensor.uint16 of size 3 on cpu>
+   1   4   9
+<tensor.uint16 of size 3 on cpu (byteswapped)>
+   1   4   9
+<tensor.uint16 of size 3 on cpu (byteswapped)>
+   1   4   9
+<tensor.uint16 of size 3 on cpu>
+Expected error: Attempting to write to a read-only tensor
+Expected error: Attempting to write to a self-overlapping tensor

@@ -1,0 +1,17 @@
+False
+True
+   1   2   3
+<tensor.float of size 3 on cpu>
+   1   2   3
+<tensor.int8 of size 3 on cpu>
+False
+True
+   1   2   3
+<storage.half of size 3 on cpu>
+   1 + 0j    2 + 0j    3 + 0j
+<storage.complex-float of size 3 on cpu>
+   1   2   3
+<tensor.int8 of size 3 on cpu>
+9
+9
+9

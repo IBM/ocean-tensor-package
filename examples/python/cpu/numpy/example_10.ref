@@ -1,0 +1,33 @@
+['numpy']
+['numpy']
+   0   0   0   0   0
+<tensor.float of size 5 on cpu>
+   1   1   1   1   1
+<tensor.float of size 5 on cpu>
+   2   2   2   2   2
+<tensor.float of size 5 on cpu>
+   3   3   3   3   3
+<tensor.float of size 5 on cpu>
+   4   4   4   4   4
+<tensor.float of size 5 on cpu>
+   5   5   5   5   5
+<tensor.float of size 5 on cpu>
+   6   6   6   6   6
+<tensor.float of size 5 on cpu>
+   7   7   7   7   7
+<tensor.float of size 5 on cpu>
+   8   8   8   8   8
+<tensor.float of size 5 on cpu>
+   8   8   8   8   8
+<tensor.float of size 5 on cpu>
+   9   9   9   9   9
+<tensor.float of size 5 on cpu>
+   10   10   10   10   10
+<tensor.float of size 5 on cpu>
+   11   11   11   11   11
+<tensor.float of size 5 on cpu>
+   12   12   12   12   12
+<tensor.float of size 5 on cpu>
+   13   13   13   13   13
+<tensor.float of size 5 on cpu>
+Expected error: Scalar-like type expected at parameter 1 of tensor.fill

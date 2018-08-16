@@ -1,0 +1,18 @@
+(:,:)
+    0    3    6    9   12   15
+    1    4    7   10   13   16
+    2    5    8   11   14   17
+<tensor.float of size 3x6 on cpu (byteswapped)>
+   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2   2
+<tensor.double of size 18 on gpu0>
+--------------------------------------------------------------
+--------------------------------------------------------------
+(:,:)
+    0    3    6    9   12   15
+    1    4    7   10   13   16
+    2    5    8   11   14   17
+<tensor.float of size 3x6 on cpu (byteswapped)>
+    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17
+<storage.double of size 18 on gpu0>
+    0    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16   17
+<tensor.double of size 18 on gpu0>

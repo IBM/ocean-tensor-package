@@ -1,0 +1,156 @@
+
+========= Tensor bool (gpu0) =========
+(:,:)
+   True   True   True   True   True
+<tensor.bool of size 1x5 on gpu0>
+(:,:)
+   False
+    True
+    True
+    True
+    True
+    True
+<tensor.bool of size 6x1 on gpu0>
+
+------ bitwiseAnd(a1,a2), (a1 & a2), bitwiseAnd(a1,a2,r) ------
+(:,:)
+   False   False   False   False   False
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+<tensor.bool of size 6x5 on gpu0>
+(:,:)
+   False   False   False   False   False
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+<tensor.bool of size 6x5 on gpu0>
+(:,:)
+   False   False   False   False   False
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+<tensor.bool of size 6x5 on gpu0>
+
+========= Tensor int8 (gpu0) =========
+(:,:)
+     1     2     3     7   127
+<tensor.int8 of size 1x5 on gpu0>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.int8 of size 6x1 on gpu0>
+
+------ bitwiseAnd(a1,a2), (a1 & a2), bitwiseAnd(a1,a2,r) ------
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int8 of size 6x5 on gpu0>
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int8 of size 6x5 on gpu0>
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int8 of size 6x5 on gpu0>
+
+========= Tensor uint8 (gpu0) =========
+(:,:)
+     1     2     3     7   127
+<tensor.uint8 of size 1x5 on gpu0>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.uint8 of size 6x1 on gpu0>
+
+------ bitwiseAnd(a1,a2), (a1 & a2), bitwiseAnd(a1,a2,r) ------
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.uint8 of size 6x5 on gpu0>
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.uint8 of size 6x5 on gpu0>
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.uint8 of size 6x5 on gpu0>
+
+========= Tensor int32 (gpu0) =========
+(:,:)
+     1     2     3     7   127
+<tensor.int32 of size 1x5 on gpu0>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.int32 of size 6x1 on gpu0>
+
+------ bitwiseAnd(a1,a2), (a1 & a2), bitwiseAnd(a1,a2,r) ------
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int32 of size 6x5 on gpu0>
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int32 of size 6x5 on gpu0>
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int32 of size 6x5 on gpu0>

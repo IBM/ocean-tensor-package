@@ -1,0 +1,140 @@
+
+========= int8 (gpu0) =========
+   1   2   3   1   0   2   4
+<tensor.int8 of size 7 on gpu0>
+   3   2   1   1   1   2   4
+<tensor.int8 of size 7 on gpu0>
+
+------ min(a1,a2), min(a2,a1), max(a1,a2) ------
+   1   2   1   1   0   2   4
+<tensor.int8 of size 7 on gpu0>
+   1   2   1   1   0   2   4
+<tensor.int8 of size 7 on gpu0>
+   3   2   3   1   1   2   4
+<tensor.int8 of size 7 on gpu0>
+
+------ fmin(a1,a2), fmin(a2,a1), fmax(a1,a2) ------
+   1   2   1   1   0   2   4
+<tensor.int8 of size 7 on gpu0>
+   1   2   1   1   0   2   4
+<tensor.int8 of size 7 on gpu0>
+   3   2   3   1   1   2   4
+<tensor.int8 of size 7 on gpu0>
+
+------ fmin(a1,a2,r1), fmin(a1,a2,r2) ------
+   1   2   1   1   0   2   4
+<tensor.int8 of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    0 + 0j    2 + 0j    4 + 0j
+<tensor.complex-float of size 7 on gpu0>
+
+========= uint8 (gpu0) =========
+   1   2   3   1   0   2   4
+<tensor.uint8 of size 7 on gpu0>
+   3   2   1   1   1   2   4
+<tensor.uint8 of size 7 on gpu0>
+
+------ min(a1,a2), min(a2,a1), max(a1,a2) ------
+   1   2   1   1   0   2   4
+<tensor.uint8 of size 7 on gpu0>
+   1   2   1   1   0   2   4
+<tensor.uint8 of size 7 on gpu0>
+   3   2   3   1   1   2   4
+<tensor.uint8 of size 7 on gpu0>
+
+------ fmin(a1,a2), fmin(a2,a1), fmax(a1,a2) ------
+   1   2   1   1   0   2   4
+<tensor.uint8 of size 7 on gpu0>
+   1   2   1   1   0   2   4
+<tensor.uint8 of size 7 on gpu0>
+   3   2   3   1   1   2   4
+<tensor.uint8 of size 7 on gpu0>
+
+------ fmin(a1,a2,r1), fmin(a1,a2,r2) ------
+   1   2   1   1   0   2   4
+<tensor.uint8 of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    0 + 0j    2 + 0j    4 + 0j
+<tensor.complex-float of size 7 on gpu0>
+
+========= float (gpu0) =========
+     1     2     3     1   nan     2     4
+<tensor.float of size 7 on gpu0>
+   3   2   1   1   1   2   4
+<tensor.float of size 7 on gpu0>
+
+------ min(a1,a2), min(a2,a1), max(a1,a2) ------
+     1     2     1     1   nan     2     4
+<tensor.float of size 7 on gpu0>
+     1     2     1     1   nan     2     4
+<tensor.float of size 7 on gpu0>
+     3     2     3     1   nan     2     4
+<tensor.float of size 7 on gpu0>
+
+------ fmin(a1,a2), fmin(a2,a1), fmax(a1,a2) ------
+   1   2   1   1   1   2   4
+<tensor.float of size 7 on gpu0>
+   1   2   1   1   1   2   4
+<tensor.float of size 7 on gpu0>
+   3   2   3   1   1   2   4
+<tensor.float of size 7 on gpu0>
+
+------ fmin(a1,a2,r1), fmin(a1,a2,r2) ------
+   1   2   1   1   1   2   4
+<tensor.float of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 0j    4 + 0j
+<tensor.complex-float of size 7 on gpu0>
+
+========= complex-half (gpu0) =========
+     1 + 0j      2 + 0j      3 + 0j      1 + 0j    nan + 0j      2 + 3j      4 - 5j
+<tensor.complex-half of size 7 on gpu0>
+   3 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-half of size 7 on gpu0>
+
+------ min(a1,a2), min(a2,a1), max(a1,a2) ------
+     1 + 0j      2 + 0j      1 + 0j      1 + 0j    nan + 0j      2 + 2j      4 - 6j
+<tensor.complex-half of size 7 on gpu0>
+     1 + 0j      2 + 0j      1 + 0j      1 + 0j    nan + 0j      2 + 2j      4 - 6j
+<tensor.complex-half of size 7 on gpu0>
+     3 + 0j      2 + 0j      3 + 0j      1 + 0j    nan + 0j      2 + 3j      4 - 5j
+<tensor.complex-half of size 7 on gpu0>
+
+------ fmin(a1,a2), fmin(a2,a1), fmax(a1,a2) ------
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-half of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-half of size 7 on gpu0>
+   3 + 0j    2 + 0j    3 + 0j    1 + 0j    1 + 0j    2 + 3j    4 - 5j
+<tensor.complex-half of size 7 on gpu0>
+
+------ fmin(a1,a2,r1), fmin(a1,a2,r2) ------
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-half of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-float of size 7 on gpu0>
+
+========= complex-double (gpu0) =========
+     1 + 0j      2 + 0j      3 + 0j      1 + 0j    nan + 0j      2 + 3j      4 - 5j
+<tensor.complex-double of size 7 on gpu0>
+   3 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-double of size 7 on gpu0>
+
+------ min(a1,a2), min(a2,a1), max(a1,a2) ------
+     1 + 0j      2 + 0j      1 + 0j      1 + 0j    nan + 0j      2 + 2j      4 - 6j
+<tensor.complex-double of size 7 on gpu0>
+     1 + 0j      2 + 0j      1 + 0j      1 + 0j    nan + 0j      2 + 2j      4 - 6j
+<tensor.complex-double of size 7 on gpu0>
+     3 + 0j      2 + 0j      3 + 0j      1 + 0j    nan + 0j      2 + 3j      4 - 5j
+<tensor.complex-double of size 7 on gpu0>
+
+------ fmin(a1,a2), fmin(a2,a1), fmax(a1,a2) ------
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-double of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-double of size 7 on gpu0>
+   3 + 0j    2 + 0j    3 + 0j    1 + 0j    1 + 0j    2 + 3j    4 - 5j
+<tensor.complex-double of size 7 on gpu0>
+
+------ fmin(a1,a2,r1), fmin(a1,a2,r2) ------
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-double of size 7 on gpu0>
+   1 + 0j    2 + 0j    1 + 0j    1 + 0j    1 + 0j    2 + 2j    4 - 6j
+<tensor.complex-float of size 7 on gpu0>

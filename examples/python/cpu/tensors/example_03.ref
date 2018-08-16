@@ -1,0 +1,16 @@
+(:,:)
+   0   0   0
+   0   0   0
+<tensor.float of size 2x3 on cpu>
+   0   0   0   0   0   0
+<storage.float of size 6 on cpu>
+<device 'cpu'>
+<dtype 'float'>
+2
+(2, 3)
+(4, 8)
+0
+<device 'cpu'>
+4
+1
+<tensor.float of size 2x3 on cpu>

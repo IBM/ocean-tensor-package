@@ -1,0 +1,4 @@
+Expected error: The stop.imag value (7.000000e+04) is out of range for data type complex-half
+Expected error: The stop.real value (7.000000e+04) is out of range for data type complex-half
+Expected error: The start.real value (7.000000e+04) is out of range for data type complex-half
+Expected error: The start.imag value (7.000000e+04) is out of range for data type complex-half

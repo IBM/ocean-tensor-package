@@ -1,0 +1,36 @@
+
+========= Scalar bool =========
+[False, False, True, True]
+[False, True, False, True]
+
+------ Logical AND, OR, XOR ------
+[False, False, False, True]
+[False, True, True, True]
+[False, True, True, False]
+
+========= Scalar int8 =========
+[0, 0, 1, 1]
+[0, 1, 0, 1]
+
+------ Logical AND, OR, XOR ------
+[False, False, False, True]
+[False, True, True, True]
+[False, True, True, False]
+
+========= Scalar float =========
+[0, 0, 1, 1]
+[0, 1, 0, 1]
+
+------ Logical AND, OR, XOR ------
+[False, False, False, True]
+[False, True, True, True]
+[False, True, True, False]
+
+========= Scalar complex-double =========
+[0 + 0j, 0 + 0j, 1 + 0j, 1 + 0j]
+[0 + 0j, 1 + 0j, 0 + 0j, 1 + 0j]
+
+------ Logical AND, OR, XOR ------
+[False, False, False, True]
+[False, True, True, True]
+[False, True, True, False]

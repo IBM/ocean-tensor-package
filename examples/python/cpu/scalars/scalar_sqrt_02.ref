@@ -1,0 +1,35 @@
+Input: 0j
+0j
+0 + 0j
+
+Input: nan*j
+(nan+nan*j)
+nan + nanj
+
+Input: (nan+2j)
+(nan+nan*j)
+nan + nanj
+
+Input: (1+inf*j)
+(inf+inf*j)
+inf + infj
+
+Input: (1-inf*j)
+(inf-inf*j)
+inf - infj
+
+Input: (inf+1j)
+(inf+0j)
+inf + 0j
+
+Input: (inf-1j)
+(inf-0j)
+inf + 0j
+
+Input: (-inf+1j)
+inf*j
+0 + infj
+
+Input: (-inf-1j)
+-inf*j
+0 - infj

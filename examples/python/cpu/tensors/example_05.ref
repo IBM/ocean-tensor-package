@@ -1,0 +1,8 @@
+(:,:)
+     3   768     3
+     3   768     3
+<tensor.int16 of size 2x3 on cpu>
+   3   3   3   3   3   3   3   3   3   3
+<storage.int16 of size 10 on cpu>
+20
+10

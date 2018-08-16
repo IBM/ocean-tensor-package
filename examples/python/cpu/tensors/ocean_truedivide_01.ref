@@ -1,0 +1,120 @@
+---------------------------------------------
+Numpy :  4 true divide  3 = 1
+Ocean :  4 true divide  3 = 1
+Ocean :  4 true divide  3 = 1 (int8,int8)
+   1
+<tensor.int8 of size 1 on cpu>
+Ocean :  4 true divide  3 = 1.33301 (half,half)
+   1.33301
+<tensor.half of size 1 on cpu>
+Ocean :  4 true divide  3 = 1.33333 (float,float)
+   1.33333
+<tensor.float of size 1 on cpu>
+Ocean :  4 true divide  3 = 1.33333 (double,double)
+   1.33333
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy :  4 true divide -3 = -1
+Ocean :  4 true divide -3 = -1
+Ocean :  4 true divide -3 = -1 (int8,int8)
+   -1
+<tensor.int8 of size 1 on cpu>
+Ocean :  4 true divide -3 = -1.33301 (half,half)
+   -1.33301
+<tensor.half of size 1 on cpu>
+Ocean :  4 true divide -3 = -1.33333 (float,float)
+   -1.33333
+<tensor.float of size 1 on cpu>
+Ocean :  4 true divide -3 = -1.33333 (double,double)
+   -1.33333
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy : -4 true divide  3 = -1
+Ocean : -4 true divide  3 = -1
+Ocean : -4 true divide  3 = -1 (int8,int8)
+   -1
+<tensor.int8 of size 1 on cpu>
+Ocean : -4 true divide  3 = -1.33301 (half,half)
+   -1.33301
+<tensor.half of size 1 on cpu>
+Ocean : -4 true divide  3 = -1.33333 (float,float)
+   -1.33333
+<tensor.float of size 1 on cpu>
+Ocean : -4 true divide  3 = -1.33333 (double,double)
+   -1.33333
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy : -4 true divide -3 = 1
+Ocean : -4 true divide -3 = 1
+Ocean : -4 true divide -3 = 1 (int8,int8)
+   1
+<tensor.int8 of size 1 on cpu>
+Ocean : -4 true divide -3 = 1.33301 (half,half)
+   1.33301
+<tensor.half of size 1 on cpu>
+Ocean : -4 true divide -3 = 1.33333 (float,float)
+   1.33333
+<tensor.float of size 1 on cpu>
+Ocean : -4 true divide -3 = 1.33333 (double,double)
+   1.33333
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy : -2 true divide -3 = 0
+Ocean : -2 true divide -3 = 0
+Ocean : -2 true divide -3 = 0 (int8,int8)
+   0
+<tensor.int8 of size 1 on cpu>
+Ocean : -2 true divide -3 = 0.6665 (half,half)
+   0.6665
+<tensor.half of size 1 on cpu>
+Ocean : -2 true divide -3 = 0.66667 (float,float)
+   0.66667
+<tensor.float of size 1 on cpu>
+Ocean : -2 true divide -3 = 0.66667 (double,double)
+   0.66667
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy :  2 true divide -3 = 0
+Ocean :  2 true divide -3 = 0
+Ocean :  2 true divide -3 = 0 (int8,int8)
+   0
+<tensor.int8 of size 1 on cpu>
+Ocean :  2 true divide -3 = -0.6665 (half,half)
+   -0.6665
+<tensor.half of size 1 on cpu>
+Ocean :  2 true divide -3 = -0.66667 (float,float)
+   -0.66667
+<tensor.float of size 1 on cpu>
+Ocean :  2 true divide -3 = -0.66667 (double,double)
+   -0.66667
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy : 10 true divide  5 = 2
+Ocean : 10 true divide  5 = 2
+Ocean : 10 true divide  5 = 2 (int8,int8)
+   2
+<tensor.int8 of size 1 on cpu>
+Ocean : 10 true divide  5 = 2 (half,half)
+   2
+<tensor.half of size 1 on cpu>
+Ocean : 10 true divide  5 = 2 (float,float)
+   2
+<tensor.float of size 1 on cpu>
+Ocean : 10 true divide  5 = 2 (double,double)
+   2
+<tensor.double of size 1 on cpu>
+---------------------------------------------
+Numpy : 10 true divide -5 = -2
+Ocean : 10 true divide -5 = -2
+Ocean : 10 true divide -5 = -2 (int8,int8)
+   -2
+<tensor.int8 of size 1 on cpu>
+Ocean : 10 true divide -5 = -2 (half,half)
+   -2
+<tensor.half of size 1 on cpu>
+Ocean : 10 true divide -5 = -2 (float,float)
+   -2
+<tensor.float of size 1 on cpu>
+Ocean : 10 true divide -5 = -2 (double,double)
+   -2
+<tensor.double of size 1 on cpu>

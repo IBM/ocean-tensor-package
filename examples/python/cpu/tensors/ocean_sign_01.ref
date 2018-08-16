@@ -1,0 +1,86 @@
+
+========= Scalar int8 =========
+[-1, 0, 1, 1, 0, 0, 0]
+[-1, 0, 1, 1, 0, 0, 0]
+
+========= Scalar uint8 =========
+[255, 0, 1, 1, 0, 0, 0]
+[1, 0, 1, 1, 0, 0, 0]
+
+========= Scalar int32 =========
+[-1, 0, 1, 1, 0, 0, 0]
+[-1, 0, 1, 1, 0, 0, 0]
+
+========= Scalar float =========
+[-1, 0, 1, 1, 0, 0, 0]
+[-1, 0, 1, 1, 0, 0, 0]
+
+========= Scalar complex-half =========
+[-1 + 0j, 0 + 0j, 1 + 0j, 1 + 2j, 0 + 2j, 0 - 2j, 0 + 0j]
+[-1 + 0j, 0 + 0j, 1 + 0j, 1 + 0j, 1 + 0j, -1 + 0j, 0 + 0j]
+
+========= Scalar complex-float =========
+[-1 + 0j, 0 + 0j, 1 + 0j, 1 + 2j, 0 + 2j, 0 - 2j, 0 + 0j]
+[-1 + 0j, 0 + 0j, 1 + 0j, 1 + 0j, 1 + 0j, -1 + 0j, 0 + 0j]
+
+========= Tensor int8 =========
+   -1   0   1   1   0   0   0
+<tensor.int8 of size 7 on cpu>
+   -1   0   1   1   0   0   0
+<tensor.int8 of size 7 on cpu>
+   -1   0   1   1   0   0   0
+<tensor.int8 of size 7 on cpu>
+
+========= Tensor uint8 =========
+   255     0     1     1     0     0     0
+<tensor.uint8 of size 7 on cpu>
+   1   0   1   1   0   0   0
+<tensor.uint8 of size 7 on cpu>
+   1   0   1   1   0   0   0
+<tensor.int8 of size 7 on cpu>
+
+========= Tensor int32 =========
+   -1   0   1   1   0   0   0
+<tensor.int32 of size 7 on cpu>
+   -1   0   1   1   0   0   0
+<tensor.int32 of size 7 on cpu>
+   -1   0   1   1   0   0   0
+<tensor.int8 of size 7 on cpu>
+
+========= Tensor float =========
+   -1   0   1   1   0   0   0
+<tensor.float of size 7 on cpu>
+   -1   0   1   1   0   0   0
+<tensor.float of size 7 on cpu>
+   -1   0   1   1   0   0   0
+<tensor.int8 of size 7 on cpu>
+
+========= Tensor complex-half =========
+   -1 + 0j    0 + 0j    1 + 0j    1 + 2j    0 + 2j    0 - 2j    0 + 0j
+<tensor.complex-half of size 7 on cpu>
+   -1 + 0j    0 + 0j    1 + 0j    1 + 0j    1 + 0j   -1 + 0j    0 + 0j
+<tensor.complex-half of size 7 on cpu>
+   -1   0   1   1   1  -1   0
+<tensor.int8 of size 7 on cpu>
+
+========= Tensor complex-float =========
+   -1 + 0j    0 + 0j    1 + 0j    1 + 2j    0 + 2j    0 - 2j    0 + 0j
+<tensor.complex-float of size 7 on cpu>
+   -1 + 0j    0 + 0j    1 + 0j    1 + 0j    1 + 0j   -1 + 0j    0 + 0j
+<tensor.complex-float of size 7 on cpu>
+   -1   0   1   1   1  -1   0
+<tensor.int8 of size 7 on cpu>
+
+========= Exceptions =========
+nan
+nan
+   nan
+<tensor.double of size 1 on cpu>
+0 + nanj
+nan + 0j
+   nan + 0j
+<tensor.complex-double of size 1 on cpu>
+nan + 0j
+nan + 0j
+   nan + 0j
+<tensor.complex-double of size 1 on cpu>

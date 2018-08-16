@@ -1,0 +1,39 @@
+(:,:)
+    0    1    2    3
+    4    5    6    7
+    8    9   10   11
+<tensor.int64 of size 3x4 on cpu>
+    0    4    8    1    5    9    2    6   10    3    7   11
+<tensor.int64 of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.int64 of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.int64 of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.int64 of size 12 on cpu>
+(:,:)
+    0    3    6    9
+    1    4    7   10
+    2    5    8   11
+<tensor.float of size 3x4 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.float of size 12 on cpu>
+    0    3    6    9    1    4    7   10    2    5    8   11
+<tensor.float of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.float of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.float of size 12 on cpu>
+(:,:)
+    0    1    2    3
+    4    5    6    7
+    8    9   10   11
+<tensor.float of size 3x4 on cpu>
+    0    4    8    1    5    9    2    6   10    3    7   11
+<tensor.float of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.float of size 12 on cpu>
+    0    1    2    3    4    5    6    7    8    9   10   11
+<tensor.float of size 12 on cpu>
+    0    4    8    1    5    9    2    6   10    3    7   11
+<tensor.float of size 12 on cpu>

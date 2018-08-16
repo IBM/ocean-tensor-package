@@ -1,0 +1,17 @@
+.PHONY : lib
+
+SYSTEM = $(shell uname)
+CPU    = $(shell uname -m)
+
+clean :
+	@rm -rf CMakeFiles
+	@rm -f CMakeCache.txt
+	@rm -f Makefile
+	@rm -f cmake_install.cmake
+	+$(MAKE) -C pyOcean -f Makefile.clean
+	+$(MAKE) -C pyOceanNumpy -f Makefile.clean
+	+$(MAKE) -C pyOceanDummy -f Makefile.clean
+
+lib :
+	@rm -rf lib/${SYSTEM}_${CPU}
+

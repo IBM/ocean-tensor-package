@@ -1,0 +1,9 @@
+a = 
+3
+<scalar.float on cpu>
+-----------------------------------
+a[...] = 
+3
+<scalar.float on cpu>
+-----------------------------------
+a[1]: Expected error: Number of index dimensions (1) exceeds the tensor dimension (0)

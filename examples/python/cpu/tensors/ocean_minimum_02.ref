@@ -1,0 +1,1 @@
+ocean.minimum(a): Expected error: The tensor "minimum" function does not apply to empty tensors

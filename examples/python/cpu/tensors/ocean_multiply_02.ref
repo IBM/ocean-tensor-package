@@ -1,0 +1,42 @@
+
+--------- A ---------
+(:,:)
+   False   False    True
+   False    True    True
+    True   False   False
+<tensor.bool of size 3x3 on cpu>
+
+--------- A' ---------
+(:,:)
+   False   False    True
+   False    True   False
+    True    True   False
+<tensor.bool of size 3x3 on cpu>
+
+--------- A * A ---------
+(:,:)
+    True   False   False
+    True    True    True
+   False   False    True
+<tensor.bool of size 3x3 on cpu>
+
+--------- A * A' ---------
+(:,:)
+    True    True   False
+    True    True   False
+   False   False    True
+<tensor.bool of size 3x3 on cpu>
+
+--------- A' * A ---------
+(:,:)
+    True   False   False
+   False    True    True
+   False    True    True
+<tensor.bool of size 3x3 on cpu>
+
+--------- A' * A' ---------
+(:,:)
+    True    True   False
+   False    True   False
+   False    True    True
+<tensor.bool of size 3x3 on cpu>

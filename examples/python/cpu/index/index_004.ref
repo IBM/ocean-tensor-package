@@ -1,0 +1,18 @@
+## Index binding
+Expected error: Mismatch in number of index (1) and tensor (2) dimensions
+Expected error: Mismatch in size at dimension 0 (expected 5 got 6)
+Expected error: Mismatch in strides at dimension 0 (expected 8 got 4)
+Expected error: Mismatch in number of index (2) and tensor (3) dimensions
+
+## Scalar
+Expected error: Scalar tensor index (10) exceeds size (5) at dimension 0
+Expected error: Scalar tensor index (3) exceeds size (2) at dimension 2
+
+## Indices
+Expected error: Tensor index (10) out of range (5) at dimension 1
+
+## Mask
+Expected error: Size mismatch at dimension 1 (expected 6 got 5)
+
+## Ellipsis
+Expected error: Multiple ellipsis elements in tensor index

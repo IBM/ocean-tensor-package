@@ -1,0 +1,5 @@
+(:,:)
+   1   4   7
+   2   5   8
+   3   6   9
+<tensor.int64 of size 3x3 on cpu>

@@ -1,0 +1,42 @@
+
+========= Tensor bool (gpu0) =========
+   False    True    True
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+
+========= Tensor int8 (gpu0) =========
+    0   1  -1
+<tensor.int8 of size 3 on gpu0>
+   -1  -2   0
+<tensor.int8 of size 3 on gpu0>
+   -1  -2   0
+<tensor.int8 of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+   -1  -2   0
+<tensor.int8 of size 3 on gpu0>
+   1   0   0
+<tensor.int8 of size 3 on gpu0>
+
+========= Tensor uint8 (gpu0) =========
+     0     1   255
+<tensor.uint8 of size 3 on gpu0>
+   255   254     0
+<tensor.uint8 of size 3 on gpu0>
+   255   254     0
+<tensor.uint8 of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+   255   254     0
+<tensor.uint8 of size 3 on gpu0>
+   1   0   0
+<tensor.uint8 of size 3 on gpu0>

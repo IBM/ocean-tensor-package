@@ -1,0 +1,9 @@
+    0.0    2.5    5.0    7.5   10.0
+<tensor.double of size 5 on cpu>
+   0   2   4   6   8
+<tensor.double of size 5 on cpu>
+   1.00 + 2.00j    1.25 + 1.75j    1.50 + 1.50j    1.75 + 1.25j    2.00 + 1.00j
+<tensor.complex-half of size 5 on gpu0>
+   0.0   0.5   1.0   1.5   2.0
+<tensor.double of size 5 on cpu>
+0.5

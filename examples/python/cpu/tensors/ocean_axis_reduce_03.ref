@@ -1,0 +1,7 @@
+ocean.sum(a,[]): Expected error: Reduction axes list cannot be empty
+ocean.sum(a,0,b): Expected error: Mismatch in tensor dimension 1: expected 4 got 3
+ocean.sum(a,1,True,b): Expected error: Mismatch in number of output dimensions expected 2 got 1
+ocean.sum(a,[1,1]): Expected error: Axis index 1 appears more than once
+ocean.sum(a,[-3]): Expected error: Axis at index 1 (-3) is outside the valid range [-2, 1]
+ocean.sum(a,[2]): Expected error: Axis at index 1 (2) is outside the valid range [-2, 1]
+ocean.sum(a,[1,-1]): Expected error: Axis index 1 appears more than once

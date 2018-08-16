@@ -1,0 +1,8 @@
+   1   4   9
+<tensor.int16 of size 3 on gpu0>
+   1   4   9
+<tensor.int16 of size 3 on gpu0>
+   1   4   9
+<tensor.int16 of size 3 on cpu>
+   1   4   9
+<tensor.int16 of size 3 on cpu (byteswapped)>

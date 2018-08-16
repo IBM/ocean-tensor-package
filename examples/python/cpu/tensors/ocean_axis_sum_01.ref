@@ -1,0 +1,17 @@
+(:,:)
+     1 + 0j      3 + 4j
+     2 + 0j      4 + 0j
+   nan + 0j      5 + 0j
+<tensor.complex-double of size 3x2 on cpu>
+   nan + 0j     12 + 4j
+<tensor.complex-double of size 2 on cpu>
+    3 + 0j    12 + 4j
+<tensor.complex-double of size 2 on cpu>
+   nan    14
+<tensor.double of size 2 on cpu>
+    3   14
+<tensor.double of size 2 on cpu>
+   nan + nanj     60 +  80j
+<tensor.complex-double of size 2 on cpu>
+    2 +  0j    60 + 80j
+<tensor.complex-double of size 2 on cpu>

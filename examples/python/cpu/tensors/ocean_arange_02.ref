@@ -1,0 +1,6 @@
+   250   251   252   253   254   255
+<tensor.uint8 of size 6 on cpu>
+   False   False   False   False   False    True    True    True    True    True
+<tensor.bool of size 10 on cpu>
+   0 + 0j    1 + 0j    2 + 0j    3 + 0j    4 + 0j
+<tensor.complex-double of size 5 on cpu>

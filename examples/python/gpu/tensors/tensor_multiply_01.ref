@@ -1,0 +1,52 @@
+
+# Boolean on cpu
+    True    True   False
+<tensor.bool of size 3 on cpu>
+    True    True   False
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+
+# Integer on cpu
+   -2  -1   0   1   2
+<tensor.int8 of size 5 on cpu>
+   -6  -3   0   3   6
+<tensor.int8 of size 5 on cpu>
+   -6  -3   0   3   6
+<tensor.int8 of size 5 on cpu>
+
+# Float on cpu
+   -2  -1   0   1   2
+<tensor.float of size 5 on cpu>
+   -6  -3   0   3   6
+<tensor.float of size 5 on cpu>
+   -6  -3   0   3   6
+<tensor.float of size 5 on cpu>
+
+# Boolean on gpu0
+    True    True   False
+<tensor.bool of size 3 on gpu0>
+    True    True   False
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+    True   False   False
+<tensor.bool of size 3 on gpu0>
+
+# Integer on gpu0
+   -2  -1   0   1   2
+<tensor.int8 of size 5 on gpu0>
+   -6  -3   0   3   6
+<tensor.int8 of size 5 on gpu0>
+   -6  -3   0   3   6
+<tensor.int8 of size 5 on gpu0>
+
+# Float on gpu0
+   -2  -1   0   1   2
+<tensor.float of size 5 on gpu0>
+   -6  -3   0   3   6
+<tensor.float of size 5 on gpu0>
+   -6  -3   0   3   6
+<tensor.float of size 5 on gpu0>

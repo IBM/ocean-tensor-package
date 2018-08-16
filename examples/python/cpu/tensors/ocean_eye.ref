@@ -1,0 +1,28 @@
+(:,:)
+   1   0   0
+   0   1   0
+   0   0   1
+<tensor.float of size 3x3 on cpu>
+(:,:)
+   1   0   0
+   0   1   0
+   0   0   1
+<tensor.int16 of size 3x3 on cpu>
+(:,:)
+   1   0   0
+   0   1   0
+   0   0   1
+<tensor.float of size 3x3 on cpu>
+(:,:)
+   1   0   0
+   0   1   0
+<tensor.double of size 2x3 on cpu>
+(:,:)
+   0   0   1   0
+   0   0   0   1
+<tensor.float of size 2x4 on cpu>
+(:,:)
+   0   0   0   0
+   1   0   0   0
+   0   1   0   0
+<tensor.float of size 3x4 on cpu>

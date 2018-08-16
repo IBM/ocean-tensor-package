@@ -1,0 +1,7 @@
+(:,:)
+   0   3   6
+   1   4   7
+   2   5   8
+<tensor.int64 of size 3x3 on cpu (byteswapped, read-only)>
+   0   4   8
+<tensor.int64 of size 3 on cpu (byteswapped, read-only)>

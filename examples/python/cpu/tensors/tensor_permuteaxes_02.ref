@@ -1,0 +1,5 @@
+Expected error: Invalid number of dimensions
+Expected error: Mismatch in number of dimensions
+Expected error: Invalid dimension value at index 0
+Expected error: Invalid dimension value at index 3
+Expected error: Replicate dimension at index 3

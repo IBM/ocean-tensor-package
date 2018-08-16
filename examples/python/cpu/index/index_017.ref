@@ -1,0 +1,31 @@
+(:,:)
+   0   0   0   0   0
+   0   0   0   0   0
+   0   3   3   0   0
+   0   3   3   0   0
+<tensor.float of size 4x5 on cpu (byteswapped)>
+(:,:)
+   1   3
+   2   4
+<tensor.int64 of size 2x2 on cpu>
+(:,:)
+   0   0   0   0   0
+   0   0   1   3   0
+   0   0   2   4   0
+   0   0   0   0   0
+<tensor.float of size 4x5 on cpu (byteswapped)>
+(:,:)
+   0   0   0   0   0
+   0   0   4   2   0
+   0   0   3   1   0
+   0   0   0   0   0
+<tensor.float of size 4x5 on cpu (byteswapped)>
+(:,:)
+   3   0   0   1   0
+   0   0   0   0   0
+   0   0   0   0   0
+   4   0   0   2   0
+<tensor.float of size 4x5 on cpu>
+Expected error: Cannot write to a read-only tensor
+Expected error: Cannot write to a read-only tensor
+Expected error: Cannot write to a read-only tensor

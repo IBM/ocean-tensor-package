@@ -1,0 +1,40 @@
+(:,:)
+   0   1
+   2   3
+<tensor.float of size 2x2 on cpu>
+   1   2
+<tensor.float of size 2 on cpu>
+(:,:)
+   1
+   2
+<tensor.float of size 2x1 on cpu>
+
+====== A*b ======
+   2   8
+<tensor.float of size 2 on cpu>
+
+====== A*B ======
+(:,:)
+   2
+   8
+<tensor.float of size 2x1 on cpu>
+
+====== c = A*b ======
+   2   8
+<tensor.float of size 2 on cpu>
+
+====== C = A*b ======
+(:,:)
+   2
+   8
+<tensor.float of size 2x1 on cpu>
+
+====== c = A*B ======
+   2   8
+<tensor.float of size 2 on cpu>
+
+====== C = A*B ======
+(:,:)
+   2
+   8
+<tensor.float of size 2x1 on cpu>

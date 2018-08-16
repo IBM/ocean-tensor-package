@@ -1,0 +1,104 @@
+
+========= Tensor bool (gpu0) =========
+(:,:)
+   False    True    True    True
+<tensor.bool of size 1x4 on gpu0>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on gpu0>
+(:,:)
+   False    True    True    True
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+<tensor.bool of size 6x4 on gpu0>
+(:,:)
+   False    True    True    True
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+<tensor.bool of size 6x4 on gpu0>
+(:,:)
+   False   False   False   False
+<tensor.bool of size 1x4 on gpu0>
+
+========= Tensor int8 (gpu0) =========
+(:,:)
+   0   1   2   9
+<tensor.int8 of size 1x4 on gpu0>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on gpu0>
+(:,:)
+   0   1   2   9
+   0   0   1   4
+   0   0   0   2
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.int8 of size 6x4 on gpu0>
+(:,:)
+   0   1   2   9
+   0   0   1   4
+   0   0   0   2
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.int8 of size 6x4 on gpu0>
+(:,:)
+   0   0   1   4
+<tensor.int8 of size 1x4 on gpu0>
+
+========= Tensor uint8 (gpu0) =========
+(:,:)
+   0   1   2   9
+<tensor.uint8 of size 1x4 on gpu0>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on gpu0>
+(:,:)
+   0   1   2   9
+   0   0   1   4
+   0   0   0   2
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.uint8 of size 6x4 on gpu0>
+(:,:)
+   0   1   2   9
+   0   0   1   4
+   0   0   0   2
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.uint8 of size 6x4 on gpu0>
+(:,:)
+   0   0   1   4
+<tensor.uint8 of size 1x4 on gpu0>
+
+========= Tensor uint32 (gpu0) =========
+(:,:)
+   0   1   2   9
+<tensor.uint32 of size 1x4 on gpu0>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on gpu0>
+(:,:)
+   0   1   2   9
+   0   0   1   4
+   0   0   0   2
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.uint32 of size 6x4 on gpu0>
+(:,:)
+   0   1   2   9
+   0   0   1   4
+   0   0   0   2
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.uint32 of size 6x4 on gpu0>
+(:,:)
+   0   0   1   4
+<tensor.uint32 of size 1x4 on gpu0>

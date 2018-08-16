@@ -1,0 +1,26 @@
+1
+<scalar.int8 on cpu>
+2
+<scalar.int16 on cpu>
+3
+<scalar.int32 on cpu>
+4
+<scalar.int64 on cpu>
+5
+<scalar.uint8 on cpu>
+6
+<scalar.uint16 on cpu>
+7
+<scalar.uint32 on cpu>
+8
+<scalar.uint64 on cpu>
+9
+<scalar.half on cpu>
+10
+<scalar.float on cpu>
+11
+<scalar.double on cpu>
+12 + 13j
+<scalar.complex-float on cpu>
+14 + 15j
+<scalar.complex-double on cpu>

@@ -1,0 +1,16 @@
+   0   0   0   0   0
+<tensor.float of size 5 on cpu>
+   1   1   1   1   1
+<tensor.float of size 5 on cpu>
+   2   2   2   2   2
+<tensor.float of size 5 on cpu>
+   3   3   3   3   3
+<tensor.float of size 5 on cpu>
+   3   3   3   3   3
+<tensor.float of size 5 on cpu>
+[4]
+<type 'numpy.ndarray'>
+   4   4   4   4   4
+<tensor.float of size 5 on cpu>
+   4   4   4   4   4
+<tensor.float of size 5 on cpu>

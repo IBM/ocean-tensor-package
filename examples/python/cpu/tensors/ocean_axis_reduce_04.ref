@@ -1,0 +1,31 @@
+(:,:,0)
+    0    2    4
+    1    3    5
+
+(:,:,1)
+    6    8   10
+    7    9   11
+
+(:,:,2)
+   12   14   16
+   13   15   17
+
+(:,:,3)
+   18   20   22
+   19   21   23
+<tensor.float of size 2x3x4 on cpu>
+    7.41620   21.23676   35.76311   50.38849
+<tensor.float of size 4 on cpu>
+(:,:)
+    4   10   16   22
+    2    8   14   20
+    0    6   12   18
+<tensor.float of size 3x4 on cpu>
+(:,:,0)
+   22   20   18
+   23   21   19
+<tensor.float of size 2x3x1 on cpu>
+    6.08203   16.04688   26.70313   37.50000
+<tensor.half of size 4 on cpu>
+    6.08220   16.04544   26.70881   37.50774
+<tensor.float of size 4 on cpu>

@@ -1,0 +1,15 @@
+### Indices
+Expected error: Index tensor must be integer (not double)
+Expected error: Index tensor must be integer (not complex-double)
+Expected error: Index tensor cannot have more than two dimensions
+Expected error: Number of dimensions (100) in the index tensor exceeds the maximum (8)
+Expected error: Maximum index value exceeds the indexing data type limit
+
+### Range
+Expected error: Start index must be integer
+Expected error: Stop size must be integer
+Expected error: Step size must be integer
+Expected error: Start index out of range
+Expected error: Stop size out of range
+Expected error: Step size out of range
+Expected error: Step size in index range cannot be zero

@@ -1,0 +1,5 @@
+[<tensor index [Mask(1D)]>, (False, False)]
+[<tensor index [Indices(1D)]>, (True, False)]
+[<tensor index [Offsets(1D)]>, (True, True)]
+   1   2
+<tensor.int64 of size 2 on cpu>

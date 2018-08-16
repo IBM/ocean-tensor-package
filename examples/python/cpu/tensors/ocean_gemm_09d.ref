@@ -1,0 +1,433 @@
+Setting: transA='N', transB='N', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -21 +  98j   -39 + 260j   -57 + 422j   -75 + 584j
+            -27 + 128j   -45 + 362j   -63 + 596j   -81 + 830j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -39 + 356j   -45 + 410j   -51 + 464j   -57 + 518j
+            -45 + 458j   -51 + 536j   -57 + 614j   -63 + 692j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            359 + 12j    413 + 18j    467 + 24j    521 + 30j
+            461 +  6j    539 + 12j    617 + 18j    695 + 24j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -15 +   52j   -33 +  142j   -51 +  232j   -69 +  322j
+            -33 +  142j   -51 +  448j   -69 +  754j   -87 + 1060j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -33 + 190j   -39 + 220j   -45 + 250j   -51 + 280j
+            -51 + 496j   -57 + 598j   -63 + 700j   -69 + 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            193 + 18j    223 + 24j    253 + 30j    283 + 36j
+            499 +  0j    601 +  6j    703 + 12j    805 + 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+              55 +  0j     145 - 18j     235 - 36j     325 - 54j
+             145 + 18j     451 +  0j     757 - 18j    1063 - 36j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            193 - 18j    223 - 24j    253 - 30j    283 - 36j
+            499 +  0j    601 -  6j    703 - 12j    805 - 18j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            -33 - 190j   -39 - 220j   -45 - 250j   -51 - 280j
+            -51 - 496j   -57 - 598j   -63 - 700j   -69 - 802j
+         <tensor.complex-double of size 2x4 on cpu>
+All checks passed for data type complex-double

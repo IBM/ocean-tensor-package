@@ -1,0 +1,13 @@
+   2   3   4
+<tensor.float of size 3 on cpu>
+   4   5   6
+<tensor.int16 of size 3 on cpu>
+Expected error: Tensor data type mismatch (automatic type casting is disabled)
+   4
+<tensor.float of size 1 on cpu>
+   4.2
+<tensor.float of size 1 on cpu>
+Expected error: Tensor data type mismatch (automatic type casting is disabled)
+   4   5   6
+<tensor.int16 of size 3 on cpu>
+Expected error: Tensor data type mismatch (automatic type casting is disabled)

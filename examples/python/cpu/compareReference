@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Expect a single .py input file
+FILENAME=$1
+BASE="${FILENAME%.*}"
+
+REFERENCE=${BASE}.ref
+
+if [ -e "${REFERENCE}" ]; then
+   python $FILENAME | diff ${REFERENCE} -
+else
+   printf "Could not find reference file for '%s'" "${FILENAME}"
+fi
+

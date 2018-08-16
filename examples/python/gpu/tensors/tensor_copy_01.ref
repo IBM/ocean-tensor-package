@@ -1,0 +1,62 @@
+(:,:)
+   1   1   1   1   1   1
+   1   1   1   1   1   1
+<tensor.float of size 2x6 on gpu0>
+(:,:)
+   2   2   2   2   2   2
+   2   2   2   2   2   2
+<tensor.float of size 2x6 on gpu0>
+(:,:,0)
+   3   3
+   3   3
+
+(:,:,1)
+   3   3
+   3   3
+
+(:,:,2)
+   3   3
+   3   3
+<tensor.float of size 2x2x3 on gpu0>
+(:,:)
+   4   4   4   4   4   4
+   4   4   4   4   4   4
+<tensor.float of size 2x6 on gpu0>
+
+--------- Copy ---------
+
+(:,:)
+   1   1   1   1   1   1
+   1   1   1   1   1   1
+<tensor.float of size 2x6 on gpu0>
+(:,:)
+   1   1   1   1   1   1
+   1   1   1   1   1   1
+<tensor.float of size 2x6 on gpu0>
+(:,:,0)
+   1   1
+   1   1
+
+(:,:,1)
+   1   1
+   1   1
+
+(:,:,2)
+   1   1
+   1   1
+<tensor.float of size 2x2x3 on gpu0>
+(:,:)
+   1   1   1   1   1   1
+   1   1   1   1   1   1
+<tensor.float of size 2x6 on gpu0>
+
+--------- Storage ---------
+
+   1
+<storage.float of size 1 on gpu0>
+   1   1   1   1   1   1
+<storage.float of size 6 on gpu0>
+   1   1
+<storage.float of size 2 on gpu0>
+   1
+<storage.float of size 1 on gpu0>

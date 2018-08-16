@@ -1,0 +1,5 @@
+9
+<type 'ocean.scalar'>
+9
+<scalar.int8 on cpu>
+Expected error: In-place ensure device does not apply to scalar objects

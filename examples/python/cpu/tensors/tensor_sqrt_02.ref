@@ -1,0 +1,8 @@
+    4    9   16
+<tensor.int64 of size 3 on cpu>
+    9   16   25
+<tensor.int64 of size 3 on cpu>
+   4   2   3
+<tensor.int64 of size 3 on cpu>
+   2   3   4
+<tensor.int64 of size 3 on cpu>

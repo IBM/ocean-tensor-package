@@ -1,0 +1,10 @@
+   1   2   3
+<tensor.int64 of size 3 on cpu>
+(:,:)
+   0   3   6
+<tensor.int64 of size 1x3 on cpu>
+(:,:)
+   1   4   7
+   2   5   8
+   3   6   9
+<tensor.int64 of size 3x3 on cpu>

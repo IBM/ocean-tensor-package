@@ -1,0 +1,19 @@
+.PHONY : lib
+
+SYSTEM = $(shell uname)
+CPU    = $(shell uname -m)
+
+clean :
+	@rm -rf CMakeFiles
+	@rm -f CMakeCache.txt
+	@rm -f Makefile
+	@rm -f cmake_install.cmake
+	+$(MAKE) -C base -f Makefile.clean
+	+$(MAKE) -C external/ocean-solid -f Makefile.clean
+	+$(MAKE) -C external/ocean-blas -f Makefile.clean
+	+$(MAKE) -C core -f Makefile.clean
+	+$(MAKE) -C module_dummy -f Makefile.clean
+
+lib :
+	@rm -rf ../lib/${SYSTEM}_${CPU}
+

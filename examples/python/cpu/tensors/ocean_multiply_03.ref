@@ -1,0 +1,26 @@
+   1 + 0j    2 + 0j    3 + 2j
+<tensor.complex-float of size 3 on cpu>
+
+--------- Scalar A times tensor B ---------
+    1 + 2j    2 + 4j   -1 + 8j
+<tensor.complex-float of size 3 on cpu>
+   1 - 2j    2 - 4j    7 - 4j
+<tensor.complex-float of size 3 on cpu>
+(:,:)
+   1 + 2j    2 + 4j    7 + 4j
+<tensor.complex-float of size 1x3 on cpu>
+(:,:)
+    1 - 2j    2 - 4j   -1 - 8j
+<tensor.complex-float of size 1x3 on cpu>
+
+--------- Tensor B times scalar A ---------
+    1 + 2j    2 + 4j   -1 + 8j
+<tensor.complex-float of size 3 on cpu>
+(:,:)
+   1 + 2j    2 + 4j    7 + 4j
+<tensor.complex-float of size 1x3 on cpu>
+   1 - 2j    2 - 4j    7 - 4j
+<tensor.complex-float of size 3 on cpu>
+(:,:)
+    1 - 2j    2 - 4j   -1 - 8j
+<tensor.complex-float of size 1x3 on cpu>

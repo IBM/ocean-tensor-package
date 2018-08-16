@@ -1,0 +1,439 @@
+#include <stddef.h>
+
+#include "solid_gpu.h"
+#include "solid/base/gpu/solid_cuda.h"
+#include "solid/core/gpu/reduce_all.h"
+#include "solid/core/gpu/reduce_axis.h"
+
+
+/* --------------------------------------------------------------------- */
+/* In order to determine the appropriate kernel launch parameters, solid */
+/* obtains device properties based on the currently active GPU device.   */
+/* it is therefore important that the GPU device corresponding to the    */
+/* stream or operation is activated prior to calling the function (the   */
+/* Cuda API does not provide any functionality to obtain the device from */
+/* the stream).                                                          */
+/*                                                                       */
+/* Note:                                                                 */
+/* 1. All stride parameters are given in bytes, not number of elements   */
+/* 2. Overlap detection and resolution must be done outside; Solid does  */
+/*    not perform any checks, and does not allocate intermediate arrays  */
+/* 3. Dimension simplification and ordering must be done outside; Solid  */
+/*    does not perform any of these operations.                          */
+/* --------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------- */
+/* Data type information                                                 */
+/* --------------------------------------------------------------------- */
+SOLID_API const int solid_gpu_type_size[];
+SOLID_API const int solid_gpu_worktype_size[];
+
+
+/* --------------------------------------------------------------------- */
+/* Dummy function to call at startup to ensure GPU initialization        */
+/* --------------------------------------------------------------------- */
+SOLID_API int solid_gpu_dummy_kernel(void);
+
+
+/* --------------------------------------------------------------------- */
+/* The fill function sets all elements in the tensor to the given value  */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(gpu, int, fill,          "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                   "void *ptr, const solid_scalar value", "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, fill_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides", \
+                                   "void *ptr, const solid_scalar value", "cudaStream_t stream", float)
+FUNCTIONS(gpu, int, masked_fill,   "int ndims, const size_t *size, const ptrdiff_t *strides1", \
+                                   "void *ptr1, const ptrdiff_t *strides2, void *ptr2", \
+                                   "const solid_scalar value, cudaStream_t stream", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Copy functions                                                        */
+/* --------------------------------------------------------------------- */
+FUNCTIONS2(gpu, int, copy,         "int ndims1, const size_t *size1, const ptrdiff_t *strides1, void *ptr1", \
+                                   "int ndims2, const size_t *size2, const ptrdiff_t *strides2, void *ptr2", \
+                                   "cudaStream_t stream")
+FUNCTIONS2(gpu, int, copy_regular, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                   "const ptrdiff_t *strides2, void *ptr2", "cudaStream_t stream")
+
+
+/* --------------------------------------------------------------------- */
+/* Step functions to generate linspaces                                  */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(gpu, int, steps_int64,   "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_int64 offset, solid_int64 step", "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, steps_double,  "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_double offset, solid_double step", "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, steps_cdouble, "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                   "solid_cdouble offset, solid_cdouble step", "cudaStream_t stream", complex)
+
+
+/* --------------------------------------------------------------------- */
+/* Index manipulation                                                    */
+/* --------------------------------------------------------------------- */
+FUNCTIONS(gpu, int, add_if_negative, "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                     "const solid_scalar value, cudaStream_t stream", int)
+FUNCTIONS(gpu, int, index_to_offset, "int nstrides, solid_int64 *strides", \
+                                     "ptrdiff_t strideReduce, size_t nelem", \
+                                     "ptrdiff_t stride1, void *ptr1", \
+                                     "ptrdiff_t stride2, void *ptr2", \
+                                     "cudaStream_t stream", integer)
+
+/* ----------------------------------------------------------------------- */
+/* Get and set the values of indexed arrays. The index array has offsets,  */
+/* strides1 and ptr1, whereas the destination/source array is given by     */
+/* strides2 and ptr2. The size and number of dimensions must be identical. */
+/* ----------------------------------------------------------------------- */
+FUNCTIONS(gpu, int, get_index,    "int ndims, const size_t *size, solid_int64 **offsets",\
+                                  "const ptrdiff_t *strides1, void *ptr1", \
+                                  "const ptrdiff_t *strides2, void *ptr2", \
+                                  "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, set_index,    "int ndims, const size_t *size, solid_int64 **offsets",\
+                                  "const ptrdiff_t *strides1, void *ptr1", \
+                                  "const ptrdiff_t *strides2, void *ptr2", \
+                                  "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, fill_index,   "int ndims, const size_t *size, solid_int64 **offsets",\
+                                  "const ptrdiff_t *strides, void *ptr", \
+                                  "const solid_scalar value, cudaStream_t stream", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Basic unary functions                                                 */
+/* --------------------------------------------------------------------- */
+
+FUNCTIONS(gpu, int, negative,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - uint)
+FUNCTIONS(gpu, int, conj,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", complex)
+FUNCTIONS(gpu, int, reciprocal,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, bitwise_not, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", integer + bool)
+FUNCTIONS(gpu, int, logical_not, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", bool)
+
+FUNCTIONS(gpu, int, sin,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, cos,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, tan,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, sinh,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, cosh,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, tanh,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, arcsin,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, arccos,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, arctan,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, arcsinh,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, arccosh,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, arctanh,     "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+
+FUNCTIONS(gpu, int, sqrt,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, cbrt,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, square,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, exp,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, exp2,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, exp10,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, expm1,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, log,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, log2,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, log10,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+FUNCTIONS(gpu, int, log1p,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - bool)
+
+FUNCTIONS(gpu, int, fabs,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, sign,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, ceil,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, floor,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, trunc,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, round,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, isinf,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, isnan,       "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, isfinite,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, isposinf,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - complex)
+FUNCTIONS(gpu, int, isneginf,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all - complex)
+
+/* The absolute function is defined for complex types; the output must have the element type */
+FUNCTIONS(gpu, int, absolute,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, cudaStream_t stream", all)
+
+               
+/* --------------------------------------------------------------------- */
+/* Basic binary functions                                                */
+/* --------------------------------------------------------------------- */
+
+FUNCTIONS(gpu, int, add,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, subtract,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, multiply,    "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, divide,      "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, true_divide, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, floor_divide,"int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all - complex)
+FUNCTIONS(gpu, int, mod,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all - complex)
+FUNCTIONS(gpu, int, fmod,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all - complex)
+
+FUNCTIONS(gpu, int, bitwise_and, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", integer + bool)
+FUNCTIONS(gpu, int, bitwise_or,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", integer + bool)
+FUNCTIONS(gpu, int, bitwise_xor, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", integer + bool)
+FUNCTIONS(gpu, int, logical_and, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", bool)
+FUNCTIONS(gpu, int, logical_or,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", bool)
+FUNCTIONS(gpu, int, logical_xor, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", bool)
+
+FUNCTIONS(gpu, int, lt,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, le,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, ge,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, gt,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, eq,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, ne,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+
+FUNCTIONS(gpu, int, min,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, max,         "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, fmin,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+FUNCTIONS(gpu, int, fmax,        "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                 "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                 "cudaStream_t stream", all)
+
+/* Second argument to bitshift functions must have type uint8 */
+FUNCTIONS(gpu, int, bitshift_left,  "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                    "cudaStream_t stream", integer + bool)
+FUNCTIONS(gpu, int, bitshift_right, "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                    "cudaStream_t stream", integer + bool)
+
+/* When the first input argument is boolean and integer the second argument must have type int16 */
+FUNCTIONS(gpu, int, power,          "int ndims, const size_t *size, const ptrdiff_t *strides1, void *ptr1", \
+                                    "const ptrdiff_t *strides2, void *ptr2, const ptrdiff_t *strides3, void *ptr3", \
+                                    "cudaStream_t stream", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Reduction functions - global                                          */
+/* --------------------------------------------------------------------- */
+
+SOLID_API int solid_gpu_reduce_get_buffer_size(size_t nelem, int device);
+
+/* Reduction functions: boolean output */
+FUNCTIONS(gpu, int, any,          "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_bool *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all,          "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_bool *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_finite,   "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_bool *result, void *buffer, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, any_inf,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_bool *result, void *buffer, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, any_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_bool *result, void *buffer, cudaStream_t stream", float)
+FUNCTIONS(gpu, int, all_lt,       "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *bound, solid_bool *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_le,       "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *bound, solid_bool *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_gt,       "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *bound, solid_bool *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_ge,       "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *bound, solid_bool *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_gtlt,     "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *lower, solid_scalar *upper, solid_bool *result", \
+                                  "void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_gtle,     "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *lower, solid_scalar *upper, solid_bool *result", \
+                                  "void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_gelt,     "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *lower, solid_scalar *upper, solid_bool *result", \
+                                  "void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, all_gele,     "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_scalar *lower, solid_scalar *upper, solid_bool *result", \
+                                  "void *buffer, cudaStream_t stream", all)
+
+/* Reduction functions: unsigned 64-bit integer output */
+FUNCTIONS(gpu, int, nnz,          "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_uint64 *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, nnz_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "solid_uint64 *result, void *buffer, cudaStream_t stream", all)
+
+/* Reduction functions: unsigned integer and bool (uint64), signed integer (int64), floating point and complex (same type) */
+FUNCTIONS(gpu, int, sum,          "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, sum_nan,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, prod,         "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, prod_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+
+/* Reduction functions: integer and bool (uint64), floating point and complex (same type) */
+FUNCTIONS(gpu, int, sum_abs,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, sum_abs_nan,  "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+
+/* Reduction functions: result has the same type as the input */
+FUNCTIONS(gpu, int, maximum,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, minimum,      "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+
+/* Reduction functions: unsigned integer and bool (same type), signed integer (unsigned type), floating point and complex (same type) */
+FUNCTIONS(gpu, int, maximum_abs,  "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, minimum_abs,  "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+
+/* Reduction functions: integer and bool (double), floating point and complex (base type) */
+FUNCTIONS(gpu, int, norm,         "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr, double p", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, norm_nan,     "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr, double p", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, norm2,        "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+FUNCTIONS(gpu, int, norm2_nan,    "int ndims, const size_t *size, const ptrdiff_t *strides, void *ptr", \
+                                  "void *result, void *buffer, cudaStream_t stream", all)
+
+
+/* --------------------------------------------------------------------- */
+/* Reduction functions - axis                                            */
+/* --------------------------------------------------------------------- */
+
+SOLID_API int solid_gpu_reduce_axis_prepare(solid_gpu_reduce_axis_config *config, int elemsize,
+                                            int ndims, const size_t *size, const ptrdiff_t *strides1,
+                                            void *ptr1, const ptrdiff_t *strides2, void *ptr2,
+                                            int rdims, const size_t *rsize, const ptrdiff_t *rstrides,
+                                            cudaStream_t stream);
+
+/* Reduction functions: boolean output */
+FUNCTIONS(gpu, int, axis_any,         "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_all,         "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_all_finite,  "solid_gpu_reduce_axis_config *config", float)
+FUNCTIONS(gpu, int, axis_any_inf,     "solid_gpu_reduce_axis_config *config", float)
+FUNCTIONS(gpu, int, axis_any_nan,     "solid_gpu_reduce_axis_config *config", float)
+
+/* Reduction functions: unsigned 64-bit integer output */
+FUNCTIONS(gpu, int, axis_nnz,         "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_nnz_nan,     "solid_gpu_reduce_axis_config *config", all)
+
+/* Reduction functions: unsigned integer and bool (uint64), signed integer (int64), floating point and complex (same type) */
+FUNCTIONS(gpu, int, axis_sum,         "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_sum_nan,     "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_prod,        "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_prod_nan,    "solid_gpu_reduce_axis_config *config", all)
+
+/* Reduction functions: integer and bool (uint64), floating point and complex (same type) */
+FUNCTIONS(gpu, int, axis_sum_abs,     "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_sum_abs_nan, "solid_gpu_reduce_axis_config *config", all)
+
+/* Reduction functions: result has the same type as the input */
+FUNCTIONS(gpu, int, axis_maximum,     "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_minimum,     "solid_gpu_reduce_axis_config *config", all)
+
+/* Reduction functions: unsigned integer and bool (same type), signed integer (unsigned type), floating point and complex (same type) */
+FUNCTIONS(gpu, int, axis_maximum_abs, "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_minimum_abs, "solid_gpu_reduce_axis_config *config", all)
+
+/* Reduction functions: integer and bool (double), floating point and complex (base type) */
+FUNCTIONS(gpu, int, axis_norm,        "solid_gpu_reduce_axis_config *config, double p", all)
+FUNCTIONS(gpu, int, axis_norm_nan,    "solid_gpu_reduce_axis_config *config, double p", all)
+FUNCTIONS(gpu, int, axis_norm2,       "solid_gpu_reduce_axis_config *config", all)
+FUNCTIONS(gpu, int, axis_norm2_nan,   "solid_gpu_reduce_axis_config *config", all)
+
+
+/* --------------------------------------------------------------------- */
+/* BLAS functions                                                        */
+/* --------------------------------------------------------------------- */
+
+typedef struct
+{  char    transA, transB;
+   size_t  M, N, K;
+   dim3    gridsize;
+   dim3    blocksize;
+   int     tilesize;
+   int     sharedmem;
+} solid_gpu_gemm_plan;
+
+SOLID_API int solid_gpu_gemm_create_plan(char transA, char transB, size_t M, size_t N, size_t K,
+                                         int elemsize, int device, solid_gpu_gemm_plan *plan);
+
+FUNCTIONS(gpu, int, gemm,           "char transA, char transB, size_t M, size_t N, size_t K", \
+                                    "void *ptrAlpha, void *ptrA, ptrdiff_t ldA, void *ptrB, ptrdiff_t ldB", \
+                                    "void *ptrBeta, void *ptrC, ptrdiff_t ldC", \
+                                    "int scalarModeHost, cudaStream_t stream", integer + bool)
+
+FUNCTIONS(gpu, int, gemm_with_plan, "solid_gpu_gemm_plan *plan, void *ptrAlpha", \
+                                    "void *ptrA, ptrdiff_t ldA, void *ptrB, ptrdiff_t ldB", \
+                                    "void *ptrBeta, void *ptrC, ptrdiff_t ldC", \
+                                    "int scalarModeHost, cudaStream_t stream", integer + bool)

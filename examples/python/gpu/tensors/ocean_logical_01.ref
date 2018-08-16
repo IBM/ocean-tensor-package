@@ -1,0 +1,150 @@
+
+========= Tensor bool (gpu0) =========
+   False   False    True    True
+<tensor.bool of size 4 on gpu0>
+   False    True   False    True
+<tensor.bool of size 4 on gpu0>
+
+------ Logical AND ------
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   0   0   0   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical OR ------
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   0   1   1   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical XOR ------
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   0   1   1   0
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+========= Tensor int32 (gpu0) =========
+   0   0   1   1
+<tensor.int32 of size 4 on gpu0>
+   0   1   0   1
+<tensor.int32 of size 4 on gpu0>
+
+------ Logical AND ------
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   0   0   0   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical OR ------
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   0   1   1   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical XOR ------
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   0   1   1   0
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+========= Tensor uint32 (gpu0) =========
+   0   0   1   1
+<tensor.uint32 of size 4 on gpu0>
+   0   1   0   1
+<tensor.uint32 of size 4 on gpu0>
+
+------ Logical AND ------
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   0   0   0   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical OR ------
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   0   1   1   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical XOR ------
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   0   1   1   0
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+========= Tensor float (gpu0) =========
+   0   0   1   1
+<tensor.float of size 4 on gpu0>
+   0   1   0   1
+<tensor.float of size 4 on gpu0>
+
+------ Logical AND ------
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   0   0   0   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical OR ------
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   0   1   1   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical XOR ------
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   0   1   1   0
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+========= Tensor complex-float (gpu0) =========
+   0 + 0j    0 + 0j    1 + 0j    1 + 0j
+<tensor.complex-float of size 4 on gpu0>
+   0 + 0j    1 + 0j    0 + 0j    1 + 0j
+<tensor.complex-float of size 4 on gpu0>
+
+------ Logical AND ------
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   False   False   False    True
+<tensor.bool of size 4 on gpu0>
+   0   0   0   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical OR ------
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   False    True    True    True
+<tensor.bool of size 4 on gpu0>
+   0   1   1   1
+<tensor.int16 of size 4 on cpu (byteswapped)>
+
+------ Logical XOR ------
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   False    True    True   False
+<tensor.bool of size 4 on gpu0>
+   0   1   1   0
+<tensor.int16 of size 4 on cpu (byteswapped)>

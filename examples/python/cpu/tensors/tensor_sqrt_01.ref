@@ -1,0 +1,14 @@
+   0.00000   1.00000   1.41421   1.73205   2.00000
+<tensor.double of size 5 on cpu>
+       nan       nan       nan       nan       nan   0.00000   1.00000   1.41421   1.73205   2.00000   2.23607
+<tensor.double of size 11 on cpu>
+       nan       nan       nan       nan       nan   0.00000   1.00000   1.41406   1.73242   2.00000   2.23633
+<tensor.half of size 11 on cpu>
+       nan       nan       nan       nan       nan   0.00000   1.00000   1.41421   1.73205   2.00000   2.23607
+<tensor.float of size 11 on cpu>
+   0.00000 + 2.23607j    0.00000 + 2.00000j    0.00000 + 1.73205j    0.00000 + 1.41421j    0.00000 + 1.00000j
+   0.00000 + 0.00000j    1.00000 + 0.00000j    1.41421 + 0.00000j    1.73205 + 0.00000j    2.00000 + 0.00000j
+   2.23607 + 0.00000j
+<tensor.complex-double of size 11 on cpu>
+   0   0   0   0   0   0   1   1   1   2
+<tensor.uint8 of size 10 on cpu>

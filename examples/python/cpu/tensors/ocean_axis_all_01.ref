@@ -1,0 +1,13 @@
+(:,:)
+   1   0   1   0
+   0   0   1   1
+<tensor.int64 of size 2x4 on cpu>
+   False   False    True   False
+<tensor.bool of size 4 on cpu>
+(:,:)
+    True   False    True    True
+<tensor.bool of size 1x4 on cpu>
+   True   True
+<tensor.bool of size 2 on cpu>
+   False   False   False   False
+<tensor.bool of size 4 on cpu>

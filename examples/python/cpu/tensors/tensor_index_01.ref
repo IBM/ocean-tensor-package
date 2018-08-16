@@ -1,0 +1,25 @@
+a = 
+   0   1   2   3   4   5   6   7   8   9
+<tensor.int64 of size 10 on cpu>
+-----------------------------------
+a[0] = 
+0
+-----------------------------------
+a[1] = 
+1
+-----------------------------------
+a[9] = 
+9
+-----------------------------------
+a[-1] = 
+9
+-----------------------------------
+a[-10] = 
+0
+-----------------------------------
+a[10]: Expected error: Scalar tensor index (10) exceeds size (10) at dimension 0
+a[-11]: Expected error: Scalar tensor index (-11) exceeds size (10) at dimension 0
+a[1+2j]: Expected error: Scalar index must be integer
+a[ocean.nan]: Expected error: Scalar index out of range
+a[1e200]: Expected error: Scalar index out of range
+a[ocean.inf]: Expected error: Scalar index out of range

@@ -1,0 +1,58 @@
+# Temporary files
+*~
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.x
+
+# Debug files
+*.dSYM/
+*.su
+
+# Precompiled Python code
+*.pyc
+
+# Solid object and library files
+/solid/lib
+
+# Solid automatically generated header files
+/solid/include/solid_core_cpu.h
+/solid/include/solid_core_gpu.h
+/solid/include/solid/base/cpu/solid_omp_config.h
+
+# Ocean object and library files
+/lib/
+
+# CMake files
+Makefile
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+

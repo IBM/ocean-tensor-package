@@ -1,0 +1,15 @@
+9
+9
+9
+Expected error: The modulo parameter in power is not supported
+
+------ Floating point ------
+64
+64
+64
+
+------ Square root ------
+[2, 'half']
+2
+2
+2

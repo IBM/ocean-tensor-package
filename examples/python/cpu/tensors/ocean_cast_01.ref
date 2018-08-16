@@ -1,0 +1,6 @@
+   1   2   3
+<tensor.int64 of size 3 on cpu>
+   1   2   3
+<tensor.int8 of size 3 on cpu>
+   1   2   3
+<tensor.float of size 3 on cpu>

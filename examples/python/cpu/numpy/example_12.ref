@@ -1,0 +1,41 @@
+<empty tensor.bool of size 0 on cpu>
+1
+<scalar.int64 on cpu>
+2
+<scalar.int16 on cpu>
+3
+<scalar.float on cpu>
+4
+<scalar.int8 on cpu>
+(:,:)
+   1   4
+   2   5
+   3   6
+<tensor.int64 of size 3x2 on cpu>
+(:,:)
+   1   4
+   2   5
+   3   6
+<tensor.double of size 3x2 on cpu>
+[[1 2]
+ [3 4]]
+(:,:)
+   1   2
+   3   4
+<tensor.int32 of size 2x2 on cpu>
+(:,:)
+   1   2
+   3   4
+<tensor.float of size 2x2 on cpu>
+(:,:,0)
+   1.0   2.0
+   3.0   4.0
+
+(:,:,1)
+   1.0   2.0
+   3.0   4.0
+
+(:,:,2)
+   1.0   3.0
+   1.5   4.0
+<tensor.double of size 2x2x3 on cpu>

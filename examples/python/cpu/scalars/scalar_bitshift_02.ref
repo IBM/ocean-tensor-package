@@ -1,0 +1,20 @@
+
+======== Scalar bool =========
+[False, True, True]
+[False, False, False]
+[False, False, False]
+
+======== Scalar uint8 =========
+[0, 1, 8]
+[0, 2, 16]
+[0, 1, 8]
+
+======== Scalar int8 =========
+[0, 1, 8]
+[0, 2, 16]
+[0, 1, 8]
+
+======== Scalar int64 =========
+[0, 1, 8]
+[0, 2, 16]
+[0, 1, 8]

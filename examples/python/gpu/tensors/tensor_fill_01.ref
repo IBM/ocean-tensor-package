@@ -1,0 +1,12 @@
+24
+<scalar.int16 on gpu0>
+36
+<scalar.int16 on gpu0>
+24
+<scalar.float on gpu0>
+36
+<scalar.float on gpu0>
+24 + 0j
+<scalar.complex-half on gpu0>
+36 + 0j
+<scalar.complex-half on gpu0>

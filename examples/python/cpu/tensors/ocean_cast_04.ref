@@ -1,0 +1,8 @@
+1
+   1   2
+<tensor.int16 of size 2 on cpu>
+(:,:)
+   1 + 0j    3 + 0j
+   2 + 0j    4 + 0j
+<tensor.complex-half of size 2x2 on cpu>
+<empty tensor.bool of size 0 on cpu>

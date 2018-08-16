@@ -1,0 +1,13 @@
+(:,:)
+   1   2   3
+   4   5   6
+<tensor.double of size 2x3 on cpu>
+   1   2   3   4   5   6
+<storage.double of size 6 on cpu>
+False
+(:,:)
+   3   3   3
+   3   3   3
+<tensor.double of size 2x3 on cpu>
+[[ 0.  0.  0.]
+ [ 0.  0.  0.]]

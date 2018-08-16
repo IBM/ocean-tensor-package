@@ -1,0 +1,64 @@
+
+======== Scalar bool =========
+[False, True, True]
+[0, 1, 5, -1]
+
+------ Shift left -----
+[False, True, True]
+[False, False, False]
+[False, False, False]
+[False, False, False]
+
+------ Shift right -----
+[False, True, True]
+[False, False, False]
+[False, False, False]
+[False, False, False]
+
+======== Scalar uint8 =========
+[0, 1, 8]
+[0, 1, 5, -1]
+
+------ Shift left -----
+[0, 1, 8]
+[0, 2, 16]
+[0, 32, 0]
+[0, 0, 4]
+
+------ Shift right -----
+[0, 1, 8]
+[0, 0, 4]
+[0, 0, 0]
+[0, 2, 16]
+
+======== Scalar int8 =========
+[0, 1, 8]
+[0, 1, 5, -1]
+
+------ Shift left -----
+[0, 1, 8]
+[0, 2, 16]
+[0, 32, 0]
+[0, 0, 4]
+
+------ Shift right -----
+[0, 1, 8]
+[0, 0, 4]
+[0, 0, 0]
+[0, 2, 16]
+
+======== Scalar int64 =========
+[0, 1, 8]
+[0, 1, 5, -1]
+
+------ Shift left -----
+[0, 1, 8]
+[0, 2, 16]
+[0, 32, 256]
+[0, 0, 4]
+
+------ Shift right -----
+[0, 1, 8]
+[0, 0, 4]
+[0, 0, 0]
+[0, 2, 16]

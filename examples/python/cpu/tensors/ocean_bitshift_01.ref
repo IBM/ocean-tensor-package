@@ -1,0 +1,104 @@
+
+========= Tensor bool (cpu) =========
+(:,:)
+   False    True    True    True
+<tensor.bool of size 1x4 on cpu>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on cpu>
+(:,:)
+   False    True    True    True
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+<tensor.bool of size 6x4 on cpu>
+(:,:)
+   False    True    True    True
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+   False   False   False   False
+<tensor.bool of size 6x4 on cpu>
+(:,:)
+   False   False   False   False
+<tensor.bool of size 1x4 on cpu>
+
+========= Tensor int8 (cpu) =========
+(:,:)
+   0   1   2   9
+<tensor.int8 of size 1x4 on cpu>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on cpu>
+(:,:)
+      0     1     2     9
+      0     2     4    18
+      0     4     8    36
+      0    16    32  -112
+      0    64  -128    64
+      0     0     0     0
+<tensor.int8 of size 6x4 on cpu>
+(:,:)
+      0     1     2     9
+      0     2     4    18
+      0     4     8    36
+      0    16    32  -112
+      0    64  -128    64
+      0     0     0     0
+<tensor.int8 of size 6x4 on cpu>
+(:,:)
+    0    2    4   18
+<tensor.int8 of size 1x4 on cpu>
+
+========= Tensor uint8 (cpu) =========
+(:,:)
+   0   1   2   9
+<tensor.uint8 of size 1x4 on cpu>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on cpu>
+(:,:)
+     0     1     2     9
+     0     2     4    18
+     0     4     8    36
+     0    16    32   144
+     0    64   128    64
+     0     0     0     0
+<tensor.uint8 of size 6x4 on cpu>
+(:,:)
+     0     1     2     9
+     0     2     4    18
+     0     4     8    36
+     0    16    32   144
+     0    64   128    64
+     0     0     0     0
+<tensor.uint8 of size 6x4 on cpu>
+(:,:)
+    0    2    4   18
+<tensor.uint8 of size 1x4 on cpu>
+
+========= Tensor uint32 (cpu) =========
+(:,:)
+   0   1   2   9
+<tensor.uint32 of size 1x4 on cpu>
+   0   1   2   4   6   8
+<tensor.uint8 of size 6 on cpu>
+(:,:)
+      0      1      2      9
+      0      2      4     18
+      0      4      8     36
+      0     16     32    144
+      0     64    128    576
+      0    256    512   2304
+<tensor.uint32 of size 6x4 on cpu>
+(:,:)
+      0      1      2      9
+      0      2      4     18
+      0      4      8     36
+      0     16     32    144
+      0     64    128    576
+      0    256    512   2304
+<tensor.uint32 of size 6x4 on cpu>
+(:,:)
+    0    2    4   18
+<tensor.uint32 of size 1x4 on cpu>

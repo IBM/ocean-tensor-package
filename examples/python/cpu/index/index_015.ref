@@ -1,0 +1,35 @@
+Index: <tensor index [3,4]>
+Scalar = True
+View   = True
+Bound  = (False, False)
+
+Index: <tensor index [:,2]>
+Scalar = False
+View   = True
+Bound  = (False, False)
+
+Index: <tensor index [:,...,3]>
+Scalar = False
+View   = True
+Bound  = (False, False)
+
+Index: <tensor index [1,...,3]>
+Scalar = False
+View   = True
+Bound  = (False, False)
+
+Index: <tensor index [1,3]>
+Scalar = True
+View   = True
+Bound  = (True, False)
+
+Index: <tensor index [1,3]>
+Scalar = True
+View   = True
+Bound  = (True, True)
+
+Index: <tensor index [Indices(1D)]>
+Scalar = False
+View   = False
+Bound  = (False, False)
+

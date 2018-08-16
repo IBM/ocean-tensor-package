@@ -1,0 +1,6 @@
+   6   7   8
+<tensor.double of size 3 on cpu>
+   6   7   8
+<tensor.double of size 3 on cpu>
+   1   2   8
+<tensor.int32 of size 3 on cpu (byteswapped)>

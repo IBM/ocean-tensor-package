@@ -1,0 +1,90 @@
+
+========= Tensor and tensor =========
+
+------ int8 (gpu0) ------
+(:,:)
+    1    1    1    1
+    1    2    3    4
+    1    4    9   16
+<tensor.int8 of size 3x4 on gpu0>
+(:,:)
+    1    1    1    1
+    2    4    8   16
+    3    9   27   81
+<tensor.int64 of size 3x4 on gpu0>
+(:,:)
+   1.00000   1.00000   1.00000   1.00000
+   1.00000   1.41421   1.73205   2.00000
+   1.00000   2.00000   3.00000   4.00000
+<tensor.double of size 3x4 on gpu0>
+(:,:)
+    1    1    1    1
+    2    4    8   16
+    3    9   27   81
+<tensor.double of size 3x4 on gpu0>
+
+------ int32 (gpu0) ------
+(:,:)
+    1    1    1    1
+    1    2    3    4
+    1    4    9   16
+<tensor.int32 of size 3x4 on gpu0>
+(:,:)
+    1    1    1    1
+    2    4    8   16
+    3    9   27   81
+<tensor.int64 of size 3x4 on gpu0>
+(:,:)
+   1.00000   1.00000   1.00000   1.00000
+   1.00000   1.41421   1.73205   2.00000
+   1.00000   2.00000   3.00000   4.00000
+<tensor.double of size 3x4 on gpu0>
+(:,:)
+    1    1    1    1
+    2    4    8   16
+    3    9   27   81
+<tensor.double of size 3x4 on gpu0>
+
+------ float (gpu0) ------
+(:,:)
+    1    1    1    1
+    1    2    3    4
+    1    4    9   16
+<tensor.double of size 3x4 on gpu0>
+(:,:)
+    1    1    1    1
+    2    4    8   16
+    3    9   27   81
+<tensor.double of size 3x4 on gpu0>
+(:,:)
+   1.00000   1.00000   1.00000   1.00000
+   1.00000   1.41421   1.73205   2.00000
+   1.00000   2.00000   3.00000   4.00000
+<tensor.double of size 3x4 on gpu0>
+(:,:)
+    1    1    1    1
+    2    4    8   16
+    3    9   27   81
+<tensor.double of size 3x4 on gpu0>
+
+------ complex-float (gpu0) ------
+(:,:)
+    1 + 0j     1 + 0j     1 + 0j     1 + 0j
+    1 + 0j     2 + 0j     3 + 0j     4 + 0j
+    1 + 0j     4 + 0j     9 + 0j    16 + 0j
+<tensor.complex-double of size 3x4 on gpu0>
+(:,:)
+    1 + 0j     1 + 0j     1 + 0j     1 + 0j
+    2 + 0j     4 + 0j     8 + 0j    16 + 0j
+    3 + 0j     9 + 0j    27 + 0j    81 + 0j
+<tensor.complex-double of size 3x4 on gpu0>
+(:,:)
+   1.00000 + 0.00000j    1.00000 + 0.00000j    1.00000 + 0.00000j    1.00000 + 0.00000j
+   1.00000 + 0.00000j    1.41421 + 0.00000j    1.73205 + 0.00000j    2.00000 + 0.00000j
+   1.00000 + 0.00000j    2.00000 + 0.00000j    3.00000 + 0.00000j    4.00000 + 0.00000j
+<tensor.complex-double of size 3x4 on gpu0>
+(:,:)
+    1 + 0j     1 + 0j     1 + 0j     1 + 0j
+    2 + 0j     4 + 0j     8 + 0j    16 + 0j
+    3 + 0j     9 + 0j    27 + 0j    81 + 0j
+<tensor.complex-double of size 3x4 on gpu0>

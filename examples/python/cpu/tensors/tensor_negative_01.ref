@@ -1,0 +1,13 @@
+   False    True    True
+<tensor.bool of size 3 on cpu>
+    0  -1  -2  -3  -4
+<tensor.int16 of size 5 on cpu>
+    5   4   3   2   1   0  -1  -2  -3  -4  -5
+<tensor.int16 of size 11 on cpu>
+    5   4   3   2   1   0  -1  -2  -3  -4  -5
+<tensor.half of size 11 on cpu>
+    5   4   3   2   1   0  -1  -2  -3  -4  -5
+<tensor.float of size 11 on cpu>
+    5 + 0j    4 + 0j    3 + 0j    2 + 0j    1 + 0j    0 + 0j   -1 + 0j   -2 + 0j   -3 + 0j   -4 + 0j   -5 + 0j
+<tensor.complex-double of size 11 on cpu>
+Expected error: The unary negative function is not available for type uint8 on CPU

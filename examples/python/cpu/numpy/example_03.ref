@@ -1,0 +1,6 @@
+    0.00000e+0   1.20020e+0  -2.30080e+4   7.20024e-5
+    2.98023e-7          nan          inf         -inf
+<tensor.half of size 8 on cpu>
+    0.00000e+0   1.20020e+0  -2.30080e+4   7.20024e-5
+    2.98023e-7          nan          inf         -inf
+<tensor.half of size 8 on cpu (byteswapped)>

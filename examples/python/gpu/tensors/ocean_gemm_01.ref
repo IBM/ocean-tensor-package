@@ -1,0 +1,29 @@
+(:,:)
+   0 + 0j    3 + 0j    6 + 0j
+   1 + 0j    4 + 0j    7 + 0j
+   2 + 0j    5 + 0j    8 + 0j
+<tensor.complex-float of size 3x3 on gpu0>
+(:,:,0)
+   1 + 0j
+
+(:,:,1)
+   0 + 2j
+
+(:,:,2)
+   1 + 2j
+<tensor.complex-half of size 1x1x3 on gpu0>
+(:,:,0)
+    15 +   0j     42 +   0j     69 +   0j
+    18 +   0j     54 +   0j     90 +   0j
+    21 +   0j     66 +   0j    111 +   0j
+
+(:,:,1)
+     0 +  30j      0 +  84j      0 + 138j
+     0 +  36j      0 + 108j      0 + 180j
+     0 +  42j      0 + 132j      0 + 222j
+
+(:,:,2)
+    15 +  30j     42 +  84j     69 + 138j
+    18 +  36j     54 + 108j     90 + 180j
+    21 +  42j     66 + 132j    111 + 222j
+<tensor.complex-float of size 3x3x3 on gpu0>

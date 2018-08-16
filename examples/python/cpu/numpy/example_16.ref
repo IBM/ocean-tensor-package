@@ -1,0 +1,20 @@
+[[1 2]
+ [3 4]
+ [5 6]]
+====== ocean.asTensor(t) ======
+(:,:)
+   1   2
+   3   4
+   5   6
+<tensor.int32 of size 3x2 on cpu>
+====== ocean.asTensor([t,a]) ======
+(:,:,0)
+   1   2
+   3   4
+   5   6
+
+(:,:,1)
+   1   2
+   3   4
+   5   6
+<tensor.int32 of size 3x2x2 on cpu>

@@ -1,0 +1,9 @@
+(:,:)
+   1   2   0   0   3
+   0   4   5   0   0
+<tensor.int64 of size 2x5 on cpu>
+(:,:)
+   0   0   1   1   0
+   0   1   1   2   4
+<tensor.int64 of size 2x5 on cpu>
+Expected error: The find operation does not apply to zero-dimensional tensors

@@ -1,0 +1,18 @@
+(:,:)
+   1   1
+<tensor.int64 of size 1x2 on cpu>
+(:,:)
+   2   2
+<tensor.double of size 1x2 on cpu>
+(:,:)
+   3   3
+<tensor.double of size 1x2 on cpu>
+(:,:)
+   4   4
+<tensor.int8 of size 1x2 on cpu>
+(:,:)
+   5   5
+<tensor.int16 of size 1x2 on cpu>
+(:,:)
+   6   6
+<tensor.float of size 1x2 on cpu>

@@ -1,0 +1,16 @@
+(:,:,0)
+   1   1
+   2   2
+   3   3
+<tensor.int64 of size 3x2x1 on cpu>
+Expected error: Tensor dimensions are incompatible with broadcast dimensions
+(:,:)
+   1   1
+   2   2
+   3   3
+<tensor.int64 of size 3x2 on cpu>
+(:,:,0)
+   1   1
+   2   2
+   3   3
+<tensor.int64 of size 3x2x1 on cpu>

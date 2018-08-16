@@ -1,0 +1,35 @@
+#!/bin/bash
+
+if [ "$#" -eq 0 ]; then
+   FILES=`find . -name "*.py"`
+elif [ "$#" -eq 1 ]; then
+   if [ -d "$@" ]; then
+      FILES=`find $@ -name "*.py"`
+   else
+      FILES=$@
+   fi
+else
+   FILES=$@
+fi
+
+for FILENAME in ${FILES}; do
+   
+   BASE="${FILENAME%.*}"
+   REFERENCE=${BASE}.ref
+
+   printf "%-38s" "${FILENAME}"
+   if [ ! -f "${REFERENCE}" ]; then
+      printf "\033[1;34mMissing reference\033[0m\n"
+   else
+      D=`./compareReference "${FILENAME}"`
+      if [ ! -z "${D}" ]; then
+         printf "\033[0;31mFAILED\033[0m\n"
+         echo "------------------------------------------"
+         printf "%s\n"  "${D}"
+         echo "------------------------------------------"
+      else
+         printf "\033[1;32mPASSED\033[0m\n"
+      fi
+   fi
+
+done

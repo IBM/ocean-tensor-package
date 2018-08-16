@@ -1,0 +1,63 @@
+(:,:)
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+<tensor.float of size 6x8 on cpu>
+
+------ Slice 1 ------
+<empty tensor.float of size 0x8 on cpu>
+
+------ Slice 2 ------
+(:,:)
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+<tensor.float of size 2x8 on cpu>
+
+------ Slice 3 ------
+(:,:)
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+<tensor.float of size 3x8 on cpu>
+
+------ Slice 4 ------
+(:,:)
+   0   1   2   3   4   5   6   7
+<tensor.float of size 1x8 on cpu>
+(:,:)
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+<tensor.float of size 6x8 on cpu>
+
+------ Allowed case #1 ------
+(:,:)
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+<tensor.float of size 6x8 on cpu>
+
+------ Allowed case #2 ------
+(:,:)
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+   0   1   2   3   4   5   6   7
+<tensor.float of size 6x8 on cpu>
+
+------ Non-allowed case #1 ------
+Expected error: merging along zero-strided dimension
+
+------ Non-allowed case #2 ------
+Expected error: cannot merge non-zero strides slice into zero-strided dimension

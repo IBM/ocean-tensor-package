@@ -1,0 +1,42 @@
+
+========= Tensor bool (cpu) =========
+   False    True    True
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+
+========= Tensor int8 (cpu) =========
+    0   1  -1
+<tensor.int8 of size 3 on cpu>
+   -1  -2   0
+<tensor.int8 of size 3 on cpu>
+   -1  -2   0
+<tensor.int8 of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+   -1  -2   0
+<tensor.int8 of size 3 on cpu>
+   1   0   0
+<tensor.int8 of size 3 on cpu>
+
+========= Tensor uint8 (cpu) =========
+     0     1   255
+<tensor.uint8 of size 3 on cpu>
+   255   254     0
+<tensor.uint8 of size 3 on cpu>
+   255   254     0
+<tensor.uint8 of size 3 on cpu>
+    True   False   False
+<tensor.bool of size 3 on cpu>
+   255   254     0
+<tensor.uint8 of size 3 on cpu>
+   1   0   0
+<tensor.uint8 of size 3 on cpu>

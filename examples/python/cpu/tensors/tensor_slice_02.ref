@@ -1,0 +1,8 @@
+Expected error: Missing parameter 1 in tensor.slice
+Expected error: Missing parameter 2 in tensor.slice
+Expected error: Invalid axis for slice (-1)
+Expected error: Invalid axis for slice (2)
+Expected error: Expected nonnegative integer at parameter 3 of tensor.slice
+Expected error: Offset (10) must be smaller than the axis size (5)
+Expected error: Expected nonnegative integer at parameter 4 of tensor.slice
+Expected error: Offset plus size (6) exceeds the axis size (5)

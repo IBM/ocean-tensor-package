@@ -1,0 +1,17 @@
+(:,:)
+   1   2   3
+   1   2   3
+<tensor.float of size 2x3 on cpu>
+   1   2   3
+<storage.float of size 3 on cpu>
+(0, 4)
+
+Clone
+   1   2   3
+<storage.float of size 3 on gpu0>
+(0, 4)
+
+Replicate
+   1   1   2   2   3   3
+<storage.float of size 6 on gpu0>
+(4, 8)

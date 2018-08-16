@@ -1,0 +1,11 @@
+<scalar.float on cpu>
+<empty tensor.int8 of size 0 on cpu>
+<tensor.float of size 3x4 on cpu>
+<tensor.int16 of size 3x5 on cpu>
+(2, 6)
+<tensor.int16 of size 3x5 on cpu>
+(2, 6)
+<tensor.int16 of size 3x5 on cpu>
+(1, 3)
+Expected error: The tensor dimension values must be nonnegative
+Expected error: Invalid parameters to function ocean.tensor

@@ -1,0 +1,25 @@
+
+# Scalar addition
+ocean.int8(9) + 3 = 12 (int64)
+3 + ocean.uint8(200) = 203 (int64)
+ocean.uint8(100) + ocean.uint8(200) = 44 (uint8)
+ocean.int8(10) + ocean.chalf(1+2j) = 11 + 2j (complex-half)
+
+# Scalar subtraction
+ocean.int8(9) - 3 = 6 (int64)
+3 - ocean.uint8(200) = -197 (int64)
+ocean.uint8(100) - ocean.uint8(200) = 156 (uint8)
+ocean.int8(10) - ocean.chalf(1+2j) = 9 - 2j (complex-half)
+
+# Scalar multiplication
+ocean.int8(9) * 3 = 27 (int64)
+3 * ocean.uint8(200) = 600 (int64)
+ocean.uint8(100) * ocean.uint8(200) = 32 (uint8)
+ocean.int8(10) * ocean.chalf(1+2j) = 10 + 20j (complex-half)
+
+#Scalar division
+ocean.int8(9) / 3 = 3 (int64)
+3 / ocean.uint8(200) = 0 (int64)
+ocean.uint8(100) / ocean.uint8(200) = 0 (uint8)
+ocean.int8(10) / ocean.chalf(1+2j) = 2 - 4j (complex-half)
+ocean.chalf(10) / ocean.chalf(1+2j) = 2 - 4j (complex-half)

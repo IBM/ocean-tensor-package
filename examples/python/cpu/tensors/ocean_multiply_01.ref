@@ -1,0 +1,24 @@
+(:,:)
+   1   2
+   3   4
+<tensor.int16 of size 2x2 on cpu>
+(:,:)
+   1   2
+   3   4
+<tensor.int16 of size 2x2 on cpu>
+(:,:)
+    7   10
+   15   22
+<tensor.int16 of size 2x2 on cpu>
+(:,:)
+   10   14
+   14   20
+<tensor.int16 of size 2x2 on cpu>
+(:,:)
+    5   11
+   11   25
+<tensor.int16 of size 2x2 on cpu>
+(:,:)
+    7   15
+   10   22
+<tensor.int16 of size 2x2 on cpu>

@@ -1,0 +1,30 @@
+   10   10
+<tensor.float of size 2 on cpu>
+(:,:)
+   10   10   10
+   10   10   10
+<tensor.float of size 2x3 on cpu>
+(4, 0)
+   9   9
+<tensor.float of size 2 on cpu>
+(:,:)
+   9   9   9
+   9   9   9
+<tensor.float of size 2x3 on cpu>
+(4, 0)
+(:,:)
+   9   9   9
+   9   9   9
+<tensor.float of size 2x3 on cpu>
+(:,:)
+   8   8   8
+   8   8   8
+<tensor.float of size 2x3 on cpu>
+(4, 0)
+Automatic broadcast: True
+(:,:)
+   9   9   9
+   9   9   9
+<tensor.float of size 2x3 on cpu>
+Automatic broadcast: False
+Expected error: Tensor size mismatch (automatic broadcasting of tensor dimensions is disabled)

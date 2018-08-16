@@ -1,0 +1,24 @@
+(:,:)
+    0    4    8
+    1    5    9
+    2    6   10
+    3    7   11
+<tensor.float of size 4x3 on gpu0>
+(:,:)
+   12   16   20
+   13   17   21
+   14   18   22
+   15   19   23
+<tensor.float of size 4x3 on gpu1>
+(:,:)
+   20   16   12
+   21   17   13
+   22   18   14
+   23   19   15
+<tensor.float of size 4x3 on gpu1>
+(:,:)
+   23   19   15
+   22   18   14
+   21   17   13
+   20   16   12
+<tensor.float of size 4x3 on gpu0>

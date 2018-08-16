@@ -1,0 +1,11 @@
+# Inplace addition
+ocean.int8(3) += 4             ===> 7 (int64)
+
+# Inplace subtraction
+ocean.uint8(3) -= 4.           ===> -1 (double)
+
+# Inplace multiplication
+ocean.chalf(3+2j) *= 4+2j      ===> 8 + 14j (complex-double)
+
+# Inplace division
+ocean.chalf(3+2j) /= 4+2j      ===> 0.8 + 0.1j (complex-double)

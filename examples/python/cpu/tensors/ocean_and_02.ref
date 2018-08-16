@@ -1,0 +1,112 @@
+
+========= Tensor bool (cpu) =========
+(:,:)
+   True   True   True   True   True
+   True   True   True   True   True
+   True   True   True   True   True
+   True   True   True   True   True
+   True   True   True   True   True
+   True   True   True   True   True
+<tensor.bool of size 6x5 on cpu>
+(:,:)
+   False
+    True
+    True
+    True
+    True
+    True
+<tensor.bool of size 6x1 on cpu>
+
+------ a1 &= a2 ------
+(:,:)
+   False   False   False   False   False
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+    True    True    True    True    True
+<tensor.bool of size 6x5 on cpu>
+
+========= Tensor int8 (cpu) =========
+(:,:)
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+<tensor.int8 of size 6x5 on cpu>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.int8 of size 6x1 on cpu>
+
+------ a1 &= a2 ------
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int8 of size 6x5 on cpu>
+
+========= Tensor uint8 (cpu) =========
+(:,:)
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+<tensor.uint8 of size 6x5 on cpu>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.uint8 of size 6x1 on cpu>
+
+------ a1 &= a2 ------
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.uint8 of size 6x5 on cpu>
+
+========= Tensor int32 (cpu) =========
+(:,:)
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+     1     2     3     7   127
+<tensor.int32 of size 6x5 on cpu>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.int32 of size 6x1 on cpu>
+
+------ a1 &= a2 ------
+(:,:)
+    0    0    0    0    0
+    1    0    1    1    1
+    0    2    2    2    2
+    0    0    0    4    4
+    0    0    0    0    8
+    1    2    3    7   15
+<tensor.int32 of size 6x5 on cpu>

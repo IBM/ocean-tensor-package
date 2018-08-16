@@ -1,0 +1,72 @@
+                            bool           int8          int16          int32          int64
+                  -------------- -------------- -------------- -------------- --------------
+bool            |           bool           int8          int16          int32          int64
+int8            |           int8           int8          int16          int32          int64
+int16           |          int16          int16          int16          int32          int64
+int32           |          int32          int32          int32          int32          int64
+int64           |          int64          int64          int64          int64          int64
+
+                           uint8         uint16         uint32         uint64
+                  -------------- -------------- -------------- --------------
+bool            |          uint8         uint16         uint32         uint64
+int8            |          int16          int32          int64         double
+int16           |          int16          int32          int64         double
+int32           |          int32          int32          int64         double
+int64           |          int64          int64          int64         double
+
+                            half          float         double   complex-half  complex-float complex-double
+                  -------------- -------------- -------------- -------------- -------------- --------------
+bool            |           half          float         double   complex-half  complex-float complex-double
+int8            |           half          float         double   complex-half  complex-float complex-double
+int16           |          float          float         double  complex-float  complex-float complex-double
+int32           |         double         double         double complex-double complex-double complex-double
+int64           |         double         double         double complex-double complex-double complex-double
+
+                            bool           int8          int16          int32          int64
+                  -------------- -------------- -------------- -------------- --------------
+uint8           |          uint8          int16          int16          int32          int64
+uint16          |         uint16          int32          int32          int32          int64
+uint32          |         uint32          int64          int64          int64          int64
+uint64          |         uint64         double         double         double         double
+
+                           uint8         uint16         uint32         uint64
+                  -------------- -------------- -------------- --------------
+uint8           |          uint8         uint16         uint32         uint64
+uint16          |         uint16         uint16         uint32         uint64
+uint32          |         uint32         uint32         uint32         uint64
+uint64          |         uint64         uint64         uint64         uint64
+
+                            half          float         double   complex-half  complex-float complex-double
+                  -------------- -------------- -------------- -------------- -------------- --------------
+uint8           |           half          float         double   complex-half  complex-float complex-double
+uint16          |          float          float         double  complex-float  complex-float complex-double
+uint32          |         double         double         double complex-double complex-double complex-double
+uint64          |         double         double         double complex-double complex-double complex-double
+
+                            bool           int8          int16          int32          int64
+                  -------------- -------------- -------------- -------------- --------------
+half            |           half           half          float         double         double
+float           |          float          float          float         double         double
+double          |         double         double         double         double         double
+complex-half    |   complex-half   complex-half  complex-float complex-double complex-double
+complex-float   |  complex-float  complex-float  complex-float complex-double complex-double
+complex-double  | complex-double complex-double complex-double complex-double complex-double
+
+                           uint8         uint16         uint32         uint64
+                  -------------- -------------- -------------- --------------
+half            |           half          float         double         double
+float           |          float          float         double         double
+double          |         double         double         double         double
+complex-half    |   complex-half  complex-float complex-double complex-double
+complex-float   |  complex-float  complex-float complex-double complex-double
+complex-double  | complex-double complex-double complex-double complex-double
+
+                            half          float         double   complex-half  complex-float complex-double
+                  -------------- -------------- -------------- -------------- -------------- --------------
+half            |           half          float         double   complex-half  complex-float complex-double
+float           |          float          float         double  complex-float  complex-float complex-double
+double          |         double         double         double complex-double complex-double complex-double
+complex-half    |   complex-half  complex-float complex-double   complex-half  complex-float complex-double
+complex-float   |  complex-float  complex-float complex-double  complex-float  complex-float complex-double
+complex-double  | complex-double complex-double complex-double complex-double complex-double complex-double
+

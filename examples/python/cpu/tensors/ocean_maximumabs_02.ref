@@ -1,0 +1,64 @@
+###### bool ######
+(:,:)
+   True   True
+   True   True
+   True   True
+<tensor.bool of size 3x2 on cpu>
+>>> True True True True
+
+###### int8 ######
+(:,:)
+    1   1
+   -3  -3
+    2   2
+<tensor.int8 of size 3x2 on cpu>
+>>> 3 3 3 1
+
+###### uint8 ######
+(:,:)
+     1     1
+   253   253
+     2     2
+<tensor.uint8 of size 3x2 on cpu>
+>>> 253 253 253 2
+
+###### int32 ######
+(:,:)
+    1   1
+   -3  -3
+    2   2
+<tensor.int32 of size 3x2 on cpu>
+>>> 3 3 3 1
+
+###### half ######
+(:,:)
+    1   1
+   -3  -3
+    2   2
+<tensor.half of size 3x2 on cpu>
+>>> 3 3 3 1
+
+###### float ######
+(:,:)
+    1   1
+   -3  -3
+    2   2
+<tensor.float of size 3x2 on cpu>
+>>> 3 3 3 1
+
+###### complex-half ######
+(:,:)
+    1 + 0j    1 + 0j
+   -3 + 0j   -3 + 0j
+    2 + 0j    2 + 0j
+<tensor.complex-half of size 3x2 on cpu>
+>>> 3 3 3 1
+
+###### double ######
+(:,:)
+    1   1
+   -3  -3
+    2   2
+<tensor.double of size 3x2 on cpu>
+>>> 3 3 3 1
+

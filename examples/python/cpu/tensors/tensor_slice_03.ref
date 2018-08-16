@@ -1,0 +1,9 @@
+(:,:)
+    2    6   10   14   18   22
+<tensor.int64 of size 1x6 on cpu>
+(:,:)
+   12
+   13
+   14
+   15
+<tensor.int64 of size 4x1 on cpu>

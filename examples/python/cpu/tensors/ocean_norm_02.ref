@@ -1,0 +1,37 @@
+(:,:)
+     1     2   nan
+     3     4    -5
+<tensor.double of size 2x3 on cpu>
+
+========= normNaN-global =========
+5
+15
+7.4162
+6.0822
+5
+
+========= norm-axis =========
+   2   2   2
+<tensor.uint64 of size 3 on cpu>
+     4     6   nan
+<tensor.double of size 3 on cpu>
+   3.16228   4.47214       nan
+<tensor.double of size 3 on cpu>
+   3.03659   4.16017       nan
+<tensor.double of size 3 on cpu>
+   3   4   5
+<tensor.double of size 3 on cpu>
+
+========= normNaN-axis =========
+   2   2   1
+<tensor.uint64 of size 3 on cpu>
+   4   6   5
+<tensor.double of size 3 on cpu>
+   3.16228   4.47214   5.00000
+<tensor.double of size 3 on cpu>
+   3.03659   4.16017   5.00000
+<tensor.double of size 3 on cpu>
+   3   4   5
+<tensor.double of size 3 on cpu>
+6
+5

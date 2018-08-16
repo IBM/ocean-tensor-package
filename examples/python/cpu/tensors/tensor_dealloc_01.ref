@@ -1,0 +1,7 @@
+(:,:)
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.float of size 3x4 on cpu>
+<empty tensor.int8 of size 0 on cpu (read-only)>
+<empty storage.int8 on cpu (read-only)>

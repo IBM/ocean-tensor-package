@@ -1,0 +1,34 @@
+   0   1   2   3   4   5   6   7   8   9
+<tensor.int64 of size 10 on cpu>
+   2   3   4   5   6   7   8   9
+<tensor.int64 of size 8 on cpu>
+   2   5   8
+<tensor.int8 of size 3 on cpu>
+   10    7    4
+<tensor.half of size 3 on cpu>
+   0   1   2   3   4   5   6   7   8   9
+<tensor.double of size 10 on cpu>
+   2   3   4   5   6   7   8   9
+<tensor.double of size 8 on cpu>
+   2   5   8
+<tensor.int8 of size 3 on cpu>
+   10    7    4
+<tensor.half of size 3 on cpu>
+
+--------- Non-integer step ---------
+   2.0   2.3   2.6   2.9   3.2   3.5   3.8   4.1   4.4   4.7
+<tensor.double of size 10 on cpu>
+
+--------- Single element ---------
+   2
+<tensor.int64 of size 1 on cpu>
+   2
+<tensor.double of size 1 on cpu>
+
+--------- Empty ---------
+<empty tensor.int64 of size 0 on cpu>
+<empty tensor.int64 of size 0 on cpu>
+<empty tensor.double of size 0 on cpu>
+<empty tensor.double of size 0 on cpu>
+<empty tensor.double of size 0 on cpu>
+<empty tensor.double of size 0 on cpu>

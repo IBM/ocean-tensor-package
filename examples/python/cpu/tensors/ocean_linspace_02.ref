@@ -1,0 +1,4 @@
+Expected error: The stop value (7.000000e+04) is out of range for data type half
+Expected error: The start value (-1.000000e+01) is out of range for data type uint8
+Expected error: The stop value (2.600000e+02) is out of range for data type int8
+Expected error: Scalar-like type expected at parameter 2 of ocean.linear

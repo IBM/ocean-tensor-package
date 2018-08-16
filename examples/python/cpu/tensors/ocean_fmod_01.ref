@@ -1,0 +1,17 @@
+    1   2  -2  -1
+<tensor.int64 of size 4 on cpu>
+    1   2  -2  -1
+<tensor.float of size 4 on cpu>
+    1   2  -2  -1
+<tensor.double of size 4 on cpu>
+    1   2  -2  -1
+<tensor.int64 of size 4 on cpu>
+
+   -2   2  -2   2
+<tensor.int64 of size 4 on cpu>
+   -2   2  -2   2
+<tensor.float of size 4 on cpu>
+   -2   2  -2   2
+<tensor.double of size 4 on cpu>
+   -2   2  -2   2
+<tensor.int64 of size 4 on cpu>

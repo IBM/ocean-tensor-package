@@ -1,0 +1,16 @@
+Initialization: a = 17 (1001), b = 3 (011)
+
+------ a & b, ocean.bitwiseAnd(a,b), a &= b ------
+1
+1
+1
+
+------ a | b, ocean.bitwiseOr(a,b), a |= b ------
+19
+19
+19
+
+------ a ^ b, ocean.bitwiseXor(a,b), a ^= b ------
+18
+18
+18

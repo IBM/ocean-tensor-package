@@ -1,0 +1,45 @@
+(:,:)
+   1   2
+   2   3
+   0   4
+<tensor.int64 of size 3x2 on cpu>
+(:,:)
+   3   7
+   4   8
+   5   0
+   6   0
+<tensor.int64 of size 4x2 on cpu>
+(:,:,0)
+   1   2   4
+   0   3   5
+   0   0   6
+
+(:,:,1)
+   1   1   1
+   1   1   1
+   1   1   1
+<tensor.double of size 3x3x2 on cpu>
+
+>>> ocean.asTensor([1,[1,2]])
+Expected error: Sequences are not allowed at the final dimension
+
+>>> ocean.asTensor([[1,2],1])
+Expected error: Scalar values are allowed only at the final tensor dimension
+
+>>> ocean.asTensor([xrange(4),[[1,2],[3,4]]],0)
+Expected error: Sequences are not allowed at the final dimension
+
+>>> ocean.asTensor([[[1,2],[3,4]],xrange(4)],0)
+Expected error: Scalar values are allowed only at the final tensor dimension
+
+>>> ocean.asTensor([ocean.ones([3]),ocean.ones([3,4])],0)
+Expected error: Mismatch in tensors dimensions: expected 1 got 2
+
+>>> ocean.asTensor([ocean.ones([2]),ocean.ones([3])])
+Expected error: Incompatible tensor size at dimension 0 expected 2 got 3
+
+>>> ocean.asTensor([ocean.ones([2,2,2]),ocean.ones([2,3,2])])
+Expected error: Incompatible tensor size at dimension 1 expected 2 got 3
+
+>>> ocean.asTensor([ocean.ones([2,2,2]),ocean.ones([2,2,3])])
+Expected error: Incompatible tensor size at dimension 2 expected 2 got 3

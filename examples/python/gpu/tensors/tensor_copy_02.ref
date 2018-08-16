@@ -1,0 +1,10 @@
+12345
+<scalar.float on gpu0>
+12345
+<scalar.double on gpu0>
+12345 + 0j
+<scalar.complex-double on gpu0>
+54321 + 0j
+<scalar.complex-double on gpu0>
+1.2345 + 0.0000j
+<scalar.complex-double on gpu0>

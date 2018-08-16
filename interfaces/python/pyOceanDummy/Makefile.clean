@@ -1,0 +1,8 @@
+clean :
+	@rm -rf CMakeFiles
+	@rm -f CMakeCache.txt
+	@rm -f Makefile
+	@rm -f cmake_install.cmake
+	+$(MAKE) -C interface -f Makefile.clean
+	+$(MAKE) -C cpu -f Makefile.clean
+	+$(MAKE) -C gpu -f Makefile.clean

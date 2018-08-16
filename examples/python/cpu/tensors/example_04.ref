@@ -1,0 +1,19 @@
+   1 + 2j    1 + 2j    1 + 2j    1 + 2j    1 + 2j    1 + 2j    1 + 2j
+<storage.complex-float of size 7 on cpu>
+   1   2   1   2   1   2   1   2   1   2   1   2   1   2
+<storage.float of size 14 on cpu>
+(:,:)
+   1   2   1   2
+   2   1   2   1
+   1   2   1   2
+<tensor.float of size 3x4 on cpu>
+(:,:)
+   2   1   2   1
+   1   2   1   2
+   2   1   2   1
+<tensor.float of size 3x4 on cpu>
+(:,:)
+   2 + 1j    2 + 1j
+   2 + 1j    2 + 1j
+   2 + 1j    2 + 1j
+<tensor.complex-float of size 3x2 on cpu>

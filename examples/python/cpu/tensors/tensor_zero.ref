@@ -1,0 +1,21 @@
+(:,:)
+   0   0   0   0
+   0   0   0   0
+   0   0   0   0
+<tensor.float of size 3x4 on cpu>
+(:,:,0)
+   0 + 0j
+   0 + 0j
+
+(:,:,1)
+   0 + 0j
+   0 + 0j
+
+(:,:,2)
+   0 + 0j
+   0 + 0j
+
+(:,:,3)
+   0 + 0j
+   0 + 0j
+<tensor.complex-half of size 2x1x4 on cpu>

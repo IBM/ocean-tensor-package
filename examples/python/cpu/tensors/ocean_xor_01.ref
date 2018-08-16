@@ -1,0 +1,156 @@
+
+========= Tensor bool (cpu) =========
+(:,:)
+   False    True    True    True    True
+<tensor.bool of size 1x5 on cpu>
+(:,:)
+   False
+    True
+    True
+    True
+    True
+    True
+<tensor.bool of size 6x1 on cpu>
+
+------ bitwiseXor(a1,a2), (a1 ^ a2), bitwiseXor(a1,a2,r) ------
+(:,:)
+   False    True    True    True    True
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+<tensor.bool of size 6x5 on cpu>
+(:,:)
+   False    True    True    True    True
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+<tensor.bool of size 6x5 on cpu>
+(:,:)
+   False    True    True    True    True
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+    True   False   False   False   False
+<tensor.bool of size 6x5 on cpu>
+
+========= Tensor int8 (cpu) =========
+(:,:)
+     0     2     3     7   127
+<tensor.int8 of size 1x5 on cpu>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.int8 of size 6x1 on cpu>
+
+------ bitwiseXor(a1,a2), (a1 ^ a2), bitwiseXor(a1,a2,r) ------
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.int8 of size 6x5 on cpu>
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.int8 of size 6x5 on cpu>
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.int8 of size 6x5 on cpu>
+
+========= Tensor uint8 (cpu) =========
+(:,:)
+     0     2     3     7   127
+<tensor.uint8 of size 1x5 on cpu>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.uint8 of size 6x1 on cpu>
+
+------ bitwiseXor(a1,a2), (a1 ^ a2), bitwiseXor(a1,a2,r) ------
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.uint8 of size 6x5 on cpu>
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.uint8 of size 6x5 on cpu>
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.uint8 of size 6x5 on cpu>
+
+========= Tensor int32 (cpu) =========
+(:,:)
+     0     2     3     7   127
+<tensor.int32 of size 1x5 on cpu>
+(:,:)
+    0
+    1
+    2
+    4
+    8
+   15
+<tensor.int32 of size 6x1 on cpu>
+
+------ bitwiseXor(a1,a2), (a1 ^ a2), bitwiseXor(a1,a2,r) ------
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.int32 of size 6x5 on cpu>
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.int32 of size 6x5 on cpu>
+(:,:)
+     0     2     3     7   127
+     1     3     2     6   126
+     2     0     1     5   125
+     4     6     7     3   123
+     8    10    11    15   119
+    15    13    12     8   112
+<tensor.int32 of size 6x5 on cpu>

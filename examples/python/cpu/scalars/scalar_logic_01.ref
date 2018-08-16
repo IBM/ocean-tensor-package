@@ -1,0 +1,18 @@
+ocean.false and ocean.false --> False
+ocean.false and ocean.true --> False
+ocean.true and ocean.false --> False
+ocean.true and ocean.true --> True
+ocean.true and False --> False
+ocean.true and True --> True
+True and ocean.false --> False
+True and ocean.true --> True
+ocean.false or ocean.false --> False
+ocean.false or ocean.true --> True
+ocean.true or ocean.false --> True
+ocean.true or ocean.true --> True
+ocean.false or False --> False
+ocean.false or True --> True
+False or ocean.false --> False
+False or ocean.true --> True
+not ocean.false --> True
+not ocean.true --> False

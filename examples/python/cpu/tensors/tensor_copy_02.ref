@@ -1,0 +1,6 @@
+(:,:)
+   0   2   4
+   1   3   5
+<tensor.float of size 2x3 on cpu>
+   0   1   2   3   4   5
+<tensor.float of size 6 on cpu>

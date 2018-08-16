@@ -1,0 +1,25 @@
+.PHONY : lib
+
+SYSTEM = $(shell uname)
+CPU    = $(shell uname -m)
+
+clean :
+	@rm -rf CMakeFiles
+	@rm -f CMakeCache.txt
+	@rm -f Makefile
+	@rm -f cmake_install.cmake
+	+$(MAKE) -C solid -f Makefile.clean
+	+$(MAKE) -C src -f Makefile.clean
+	+$(MAKE) -C interfaces/python -f Makefile.clean
+
+lib : lib_solid lib_ocean lib_python
+
+lib_solid :
+	+$(MAKE) -C solid -f Makefile.clean lib
+
+lib_ocean :
+	+$(MAKE) -C src -f Makefile.clean lib
+
+lib_python :
+	+$(MAKE) -C interfaces/python -f Makefile.clean lib
+

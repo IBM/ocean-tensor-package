@@ -1,0 +1,433 @@
+Setting: transA='N', transB='N', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='N', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            10   28   46   64
+            13   40   67   94
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='T', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='N', transB='C', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            40   46   52   58
+            52   61   70   79
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='N', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='T', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='T', transB='C', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='N', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+              5    14    23    32
+             14    50    86   122
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='T', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='F', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='F', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='F', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='C', orderC='F'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+Setting: transA='C', transB='C', orderA='C', orderB='C', orderC='C'
+
+Success  : (:,:)
+            20   23   26   29
+            56   68   80   92
+         <tensor.float of size 2x4 on cpu>
+All checks passed for data type float

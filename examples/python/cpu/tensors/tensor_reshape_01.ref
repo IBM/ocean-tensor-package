@@ -1,0 +1,38 @@
+(:,:)
+    0    3    6    9
+    1    4    7   10
+    2    5    8   11
+<tensor.float of size 3x4 on cpu>
+(4, 12)
+(:,:,0)
+    0    2    4
+    1    3    5
+
+(:,:,1)
+    6    8   10
+    7    9   11
+<tensor.float of size 2x3x2 on cpu>
+True
+(:,:)
+    0    2    4    6    8   10
+    1    3    5    7    9   11
+<tensor.float of size 2x6 on cpu>
+(:,:)
+    0    3    6    9
+    1    4    7   10
+    2    5    8   11
+<tensor.float of size 3x4 on cpu>
+(16, 4)
+(:,:,0)
+    0    2    4
+    1    3    5
+
+(:,:,1)
+    6    8   10
+    7    9   11
+<tensor.float of size 2x3x2 on cpu>
+False
+(:,:)
+    0    2    4    6    8   10
+    1    3    5    7    9   11
+<tensor.float of size 2x6 on cpu>
