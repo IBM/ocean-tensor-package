@@ -237,7 +237,7 @@ The user can specify and retrieve the default device:
 
 **Advanced operations**
 
-Associated with each device is a scheduler, which can be accessed through `device.scheduler`. It is also possible to create new streams corresponding to the device, and set them as the default for future instantiations of storage (either directly, or through creation of a tensor):
+It is possible to create new streams corresponding to a device, and set them as the default for future instantiations of storage (either directly, or through creation of a tensor):
 
 ```python
 >>> import ocean
@@ -259,7 +259,7 @@ Each device has a number of temporary storage buffers that are used internally, 
 >>> # Get the maximum size of each buffer (in bytes, zero denotes infinity)
 >>> ocean.cpu.maxBufferSize
 0
->>> # Set the maximum set of each buffer
+>>> # Set the maximum size of each buffer
 >>> ocean.cpu.maxBufferSize = 1024 * 1024
 ```
 
@@ -407,7 +407,6 @@ Other operations defined on scalars include the following:
 
 ```python
 >>> # Conversion to float, long, complex, bool
->>> complex(ocean.int16(7))
 >>> complex(ocean.int16(7))
 (7+0j)
 >>> # Conversion to Python object and Ocean tensor
@@ -642,12 +641,6 @@ The storage data type is used to interpret the data, and can be used as the defa
 
 It is also possible to set the data type to `None`, which means that the storage is interpreted as a list of raw bytes.
 ```
->>>
->>> s = ocean.storage(6, ocean.int8)
->>> s.asTensor().fill(10)
->>> s
-   1   2   1   2   1   2
-<storage.float of size 6 on cpu>
 >>> s = ocean.storage(6, ocean.int8)
 >>> s.asTensor().fill(10)
 >>> s
@@ -688,7 +681,7 @@ NOTE: The byteswap status of tensors is relative to that of the storage. That me
 
 ## Streams
 
-Associated with each storage object and therefore, indirectly, with each tensor is a stream.
+Associated with each storage object and therefore, indirectly, with each tensor, is a stream.
 
 ```python
 >>> # Create a new stream with a given or default device
