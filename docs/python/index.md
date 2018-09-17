@@ -451,7 +451,7 @@ For scalar operations we allow flexible data types, and no great effort is taken
 <dtype 'int8'>
 ```
 
-As described in the [design considerations](design_choices.md), the scalar 100 in Python has type int64. Even though the addition is in-place and although 100 certainly fits int8 we nevertheless use the canonical int64 representation, thereby obtaining an int64 result. When it is desirable to maintain the data type, it may be needed to strongly type 100 before using it, as illustrated in the second half of the above example.
+As described in the [design considerations](../design_choices.md), the scalar 100 in Python has type int64. Even though the addition is in-place and although 100 certainly fits int8 we nevertheless use the canonical int64 representation, thereby obtaining an int64 result. When it is desirable to maintain the data type, it may be needed to strongly type 100 before using it, as illustrated in the second half of the above example.
 
 **Scalar configuration**
 
