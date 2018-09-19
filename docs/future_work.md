@@ -63,6 +63,7 @@ On the CPU it is possible to check the status of the floating-point register to 
 * Float to int copy: NaN and Inf entries are copied as 0 without any warning (floating-point status flags are not set)
 * Improved range checks on inputs: For example adding `[1,2,ocean.inf]` to an `int8` tensor
 * In-place division (`T /= s`) where `T` is integer and `s` may give unexpected results; maybe a warning or error should be added
+* The data type of Python scalars is determined based on the value. This can give unexpected results, for example `ocean.int8([10]) + 120` gives an int8 result of [-126], whereas `ocean.int8[10]) + 128` gives int16 [138], since 120 is cast as int8 wherase 128 is cast at int16, which is clearly an undesirable situation. On the other hand, we would also not expect an int64 result when adding a scalar 1 to an int8 tensor. Explicit type casting can help avoid the situation, but may be somewhat clunky.
 
 ## Miscellaneous tasks
 
