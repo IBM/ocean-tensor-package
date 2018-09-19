@@ -117,7 +117,7 @@ from the Ocean base directory prior to running `cmake` again. These commands del
 ### MacOS
 
 * `clang` does not support OpenMP, and multi-threading on the CPU is therefore currently disabled on MacOS.
-* `nvcc` is not compatible with `gcc` and only works with select version of `clang`. If needed, install a different version of XCode and move it to the Applications folder with version name appended (for example `XCode-8.3.3`). To activate a particular version type
+* `nvcc` is not compatible with `gcc` and only works with select version of `clang`. If needed, install a different version of XCode and move it to the `Applications` folder with version name appended (for example `XCode-8.3.3`). To activate a particular version type
 ```
 sudo xcode-select -switch /Applications/Xcode-8.3.3.app/Contents/Developer
 ```
@@ -130,7 +130,7 @@ Strange errors about header files, such as
 ```
 /usr/include/string.h(170): error: extra text after expected end of number
 ```
-may indicate the the command-line tools do not match the XCode version. In this case activate the desired version of XCode, and install the corresponding command-line tools, which can be found along with XCode on the apple developer website.
+may indicate the the command-line tools do not match the XCode version. In this case activate the desired version of XCode, and install the corresponding command-line tools, which can be found along with XCode on the Apple developer website.
 
 
 It may also be necessary to install the corresponding version of the C
