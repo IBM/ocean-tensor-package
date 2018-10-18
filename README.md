@@ -9,7 +9,7 @@ The Ocean Tensor Package, or Ocean for short, provides a comprehensive set of te
 
 ## Introduction
 
-In recent years the has been a tremendous proliferation of hardware acceleration and computation devices such as GPUs and FPGAs to address the ever-increasing need for computational power. Deep learning, which requires the processing of large volumes of data through computationally intensive neural networks for training and inference, has both been enabled by and driven the development of advanced computational hardware. In conjunction, several tensor-computation packages specialized towards deep learning have been developed to leverage the compute capabilities of these advanced new devices. However, tensor computations arise in various fields outside of deep learning, including:
+In recent years there has been a tremendous proliferation of hardware acceleration and computation devices such as GPUs and FPGAs to address the ever-increasing need for computational power. Deep learning, which requires the processing of large volumes of data through computationally intensive neural networks for training and inference, has both been enabled by and driven the development of advanced computational hardware. In conjunction, several tensor-computation packages specialized towards deep learning have been developed to leverage the compute capabilities of these advanced new devices. However, tensor computations arise in various fields outside of deep learning, including:
 
 * Scientific computing
 * Numerical optimization
