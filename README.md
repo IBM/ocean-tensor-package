@@ -1,6 +1,6 @@
 # The Ocean Tensor Package
 
-The Ocean Tensor Package, or Ocean for short, provides a comprehensive set of tensor functions.
+The [Ocean Tensor Package](https://arxiv.org/abs/1810.08723), or Ocean for short, provides a comprehensive set of tensor functions.
 
 1. [Introduction](#introduction)
 2. [Installation](docs/installation.md)
