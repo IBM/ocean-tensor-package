@@ -30,11 +30,9 @@ class Range :
 print(ocean.asTensor([[1,2,3],(4,5,6)]))
 
 # Xrange objects
-print(ocean.asTensor(xrange(10)))
+print(ocean.asTensor(range(10)))
 
 # Import iterable object
 r = Range(10)
 print(ocean.asTensor(r))
 print(ocean.asTensor([r,r]))
-
-
