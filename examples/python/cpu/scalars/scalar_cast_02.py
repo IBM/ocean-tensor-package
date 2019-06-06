@@ -1,5 +1,10 @@
 import pyOcean_cpu as ocean
 
+try:
+  long
+except NameError:
+  long = int
+
 a = ocean.chalf(1+2j)
 print(bool(a))
 a = ocean.chalf(0+1j)
