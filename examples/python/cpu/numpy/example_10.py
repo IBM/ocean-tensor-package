@@ -4,6 +4,11 @@ import pyOceanNumpy
 
 import sys
 
+try:
+   long
+except NameError:
+   long = int
+
 def exceptionMsg() :
    print("Expected error: %s" % str(sys.exc_info()[1]))
 

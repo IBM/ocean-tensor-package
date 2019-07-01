@@ -36,7 +36,7 @@ elif (filetype == '-c') :
    flagHeader = False
    flagSource = True
 elif (filetype == '-a') :
-   flagHeader = Ture
+   flagHeader = True
    flagSource = True
 else :
    raise Exception("Invalid file type '%s'", filetype)

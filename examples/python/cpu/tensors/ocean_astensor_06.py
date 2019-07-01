@@ -15,7 +15,7 @@ def failTest(command) :
 a = ocean.asTensor([[1,2],[2,3,4]],0)
 print(a)
 
-a = ocean.asTensor([xrange(3,7),[7,8]],0)
+a = ocean.asTensor([range(3,7),[7,8]],0)
 print(a)
 
 a = ocean.asTensor([[[1],[2,3],[4,5,6]],ocean.ones([3,3])],0)
